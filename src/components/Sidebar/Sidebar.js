@@ -31,7 +31,7 @@ export default function Sidebar(props) {
       {routes.map((prop, key) => {
         var activePro = " ";
         var listItemClasses;
-        if (prop.path === "/bubblesort") {
+        if (prop.path === "/bubblesort" || prop.path === "/selectionsort" || prop.path === "/mergesort") {
           activePro = classes.activePro + " ";
           listItemClasses = classNames({
             [" " + classes[color]]: false

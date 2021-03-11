@@ -30,6 +30,9 @@ import UserProfile from "views/UserProfile/UserProfile.js";
 import Leaderboard from "views/Leaderboard/Leaderboard.js";
 import Subjects from "views/Subjects/Subjects.js";
 import BubbleSort from "views/Subjects/Algorithm/BubbleSort/BubbleSort.js";
+import SelectionSort from "views/Subjects/Algorithm/SelectionSort/SelectionSort.js";
+import MergeSort from "views/Subjects/Algorithm/MergeSort/MergeSort.js";
+//import LinearSearch from "views/Subjects/Algorithm/LinearSearch/LinearSearch.js"
 import StudentAssignment from "views/StudentAssignment/StudentAssignment.js"
 import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
@@ -127,23 +130,23 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/bubblesort",
+    path: "/selectionsort",
     icon: "",
-    component: BubbleSort,
+    component: SelectionSort,
     layout: "/admin"
   },
   {
-    path: "/bubblesort",
+    path: "/mergesort",
     icon: "",
-    component: BubbleSort,
+    component: MergeSort,
     layout: "/admin"
   },
-  {
-    path: "/bubblesort",
-    icon: "",
-    component: BubbleSort,
-    layout: "/admin"
-  },
+  // {
+  //   path: "/linearsearch",
+  //   icon: "",
+  //   component: LinearSearch,
+  //   layout: "/admin"
+  // },
   {
     path: "/bubblesort",
     icon: "",

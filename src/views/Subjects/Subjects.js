@@ -75,8 +75,8 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
         <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/bubblesort">Bubble Sort</Button>
-        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/bubblesort">Selection Sort</Button>
-        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/bubblesort">Merge Sort</Button>
+        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/selectionsort">Selection Sort</Button>
+        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/mergesort">Merge Sort</Button>
         </AccordionDetails>
       </Accordion>
       <Accordion className={classes.accord}>
@@ -89,7 +89,7 @@ export default function SimpleAccordion() {
           <Typography className={classes.heading}>Searching Algorithms</Typography>
         </AccordionSummary>
         <AccordionDetails>
-        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/bubblesort">Linear Search</Button>
+        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/linearsearch">Linear Search</Button>
         <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/bubblesort">Binary Search</Button>
         </AccordionDetails>
       </Accordion>
