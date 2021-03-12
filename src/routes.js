@@ -32,7 +32,8 @@ import Subjects from "views/Subjects/Subjects.js";
 import BubbleSort from "views/Subjects/Algorithm/BubbleSort/BubbleSort.js";
 import SelectionSort from "views/Subjects/Algorithm/SelectionSort/SelectionSort.js";
 import MergeSort from "views/Subjects/Algorithm/MergeSort/MergeSort.js";
-//import LinearSearch from "views/Subjects/Algorithm/LinearSearch/LinearSearch.js"
+import LinearSearch from "views/Subjects/Algorithm/LinearSearch/LinearSearch.js"
+import BinarySearch from "views/Subjects/Algorithm/BinarySearch/BinarySearch.js"
 import StudentAssignment from "views/StudentAssignment/StudentAssignment.js"
 import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
@@ -141,16 +142,16 @@ const dashboardRoutes = [
     component: MergeSort,
     layout: "/admin"
   },
-  // {
-  //   path: "/linearsearch",
-  //   icon: "",
-  //   component: LinearSearch,
-  //   layout: "/admin"
-  // },
   {
-    path: "/bubblesort",
+    path: "/linearsearch",
     icon: "",
-    component: BubbleSort,
+    component: LinearSearch,
+    layout: "/admin"
+  },
+  {
+    path: "/binarysearch",
+    icon: "",
+    component: BinarySearch,
     layout: "/admin"
   },
   {

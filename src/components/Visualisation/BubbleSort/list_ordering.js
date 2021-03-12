@@ -158,7 +158,7 @@ export default function ListOrdering() {
       </div>
         </Grid>
         <Grid item xs={6}>
-        <div class="buttons"> 
+        <div className="buttons"> 
 
 <IconButton id="pr1" color="secondary" onClick={ pause_resume }  >
   {rows.tHandler?<PauseCircleFilledRounded style={{ fontSize: 30 }}/>:<PlayCircleFilledRoundedIcon style={{ fontSize: 30 }}/>}

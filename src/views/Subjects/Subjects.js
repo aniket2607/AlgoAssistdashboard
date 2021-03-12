@@ -90,7 +90,7 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
         <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/linearsearch">Linear Search</Button>
-        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/bubblesort">Binary Search</Button>
+        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/binarysearch">Binary Search</Button>
         </AccordionDetails>
       </Accordion>
       </div>

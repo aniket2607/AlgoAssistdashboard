@@ -20,6 +20,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import Fade from '@material-ui/core/Fade';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 export default function MergeSortVisualisation() {
 
@@ -62,9 +63,11 @@ export default function MergeSortVisualisation() {
     setArray(resetArray)  
      
  }
- 
+
+
   
   return (
+  
   
     <div>
 
@@ -103,6 +106,7 @@ export default function MergeSortVisualisation() {
 <IconButton id="pr1" color="secondary" onClick={ next }  >
 <SkipNextRoundedIcon style={{ fontSize: 30 }}/>
 </IconButton>
+
         {/* <button onClick={() => {if(rows['tHandler']===0){startVisual();} }} disabled={!!rows['tHandler']}>Sort</button>  */}
         
         {/* <button onClick={reset}>Reset Array</button> 

@@ -1,0 +1,125 @@
+
+  
+  .listbinary {
+    position: absolute;
+    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto,
+      segoe ui, arial, sans-serif;
+    width: 65ch !important;
+    height: 100px;
+  }
+  
+  .cardbinary {
+    position: absolute;
+    will-change: transform, opacity;
+    width: 70px;
+    height: 75px;
+    left: 10px;
+    top: 25px;
+    
+  }
+  
+  .cellbinary {
+    position: relative;
+    background-size: cover;
+    width: 90%;
+    height: 100px;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-size: 30px;
+    padding: 15px;
+    margin-top: 10px;
+    
+    
+  }
+  
+  .detailsbinary {
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    width: 75px;
+    height: 75px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 25px -10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .buttonsbinary {
+    position: absolute;
+    bottom: 30px;
+    line-height: 2.5;
+    width: 900px;
+    z-index: 99;
+    padding-left: 15px;
+  }
+
+  .valsbinary{
+    padding-top: 22px;
+    text-align: center;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 300;
+    /* transform: translate(0%, -30%); */
+  }
+
+
+  
+  .highlight{
+    box-shadow: 0px 10px 25px 10px rgba(255, 6, 6, 0.2);
+  }
+
+  .sortedEle{
+    box-shadow: 0px 10px 25px 10px rgba(6, 235, 196, 0.2);
+  }
+  
+  .Arrow {
+    position: absolute;
+    left: 42%;
+    top: 100px;
+    border: solid rgb(62, 19, 182);
+    border-width: 0 6px 6px 0;
+    display: inline-block;
+    padding: 3px;
+    opacity: 1;
+ }
+  
+ .upArrow {
+  transform: rotate(-135deg);
+}
+
+.low{
+  text-align: center;
+}
+
+.lowhide{
+  display: none;
+}
+.high{
+  text-align: center;
+}
+.highhide{
+  display: none;
+}
+.mid{
+  text-align: center;
+}
+.midhide{
+  display: none;
+}
+.tracerred{
+  background-color: red
+}
+
+.tracergreen{
+  background-color: green;
+  
+}
+.commentbin{
+  font-size: 15px;
+  padding-top: 500px;
+  padding-left: 300px;
+}
+
+.text{
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 330;
+}
