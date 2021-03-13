@@ -74,9 +74,9 @@ export default function SimpleAccordion() {
           <Typography className={classes.heading}>Sorting Algorithms</Typography>
         </AccordionSummary>
         <AccordionDetails>
-        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/bubblesort">Bubble Sort</Button>
-        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/selectionsort">Selection Sort</Button>
-        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/mergesort">Merge Sort</Button>
+        <Button className={classes.button} color="primary" round  href="http://localhost:3000/student/bubblesort">Bubble Sort</Button>
+        <Button className={classes.button} color="primary" round  href="http://localhost:3000/student/selectionsort">Selection Sort</Button>
+        <Button className={classes.button} color="primary" round  href="http://localhost:3000/student/mergesort">Merge Sort</Button>
         </AccordionDetails>
       </Accordion>
       <Accordion className={classes.accord}>
@@ -89,8 +89,8 @@ export default function SimpleAccordion() {
           <Typography className={classes.heading}>Searching Algorithms</Typography>
         </AccordionSummary>
         <AccordionDetails>
-        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/linearsearch">Linear Search</Button>
-        <Button className={classes.button} color="primary" round  href="http://localhost:3000/admin/binarysearch">Binary Search</Button>
+        <Button className={classes.button} color="primary" round  href="http://localhost:3000/student/linearsearch">Linear Search</Button>
+        <Button className={classes.button} color="primary" round  href="http://localhost:3000/student/binarysearch">Binary Search</Button>
         </AccordionDetails>
       </Accordion>
       </div>

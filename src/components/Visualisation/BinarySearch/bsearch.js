@@ -14,6 +14,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Fade from '@material-ui/core/Fade';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Warning from "components/Typography/Warning.js";
 
 
 
@@ -122,7 +123,7 @@ export default function BinarySearch() {
        
       </div>
       <Grid item xs={12} className="commentbin">
-        <div id="execText" className="text" ></div>
+        {/* <div id="execText" className="text" ></div> */}
         </Grid>
         </Grid>
         <Grid item xs={6}>
@@ -131,7 +132,8 @@ export default function BinarySearch() {
       <Fade in={checked}>
           <Paper elevation={4} className={classes.paper}>
           <div className="code1">
-            <p>
+            <p>
+        <div id="execText" ></div><br/>
             <div className={`tracer${rows.tHandler ? "":"hid"}${rows.high>=rows.low ? "green":"red"}`}>
             &nbsp;&nbsp;while high &gt;=low &nbsp;
             </div>

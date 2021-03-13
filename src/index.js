@@ -23,8 +23,7 @@ import BubbleSort from "views/Subjects/Algorithm/BubbleSort/BubbleSort.js";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 // core components
-import Admin from "layouts/Admin.js";
-import RTL from "layouts/RTL.js";
+import Student from "layouts/Student.js";
 
 import "assets/css/material-dashboard-react.css?v=1.9.0";
 
@@ -36,9 +35,8 @@ ReactDOM.render(
   <Router history={hist}>
        
     <Switch>
-      <Route path="/admin" component={Admin} />
-      <Route path="/rtl" component={RTL} />
-      <Redirect from="/" to="/admin/dashboard" />
+      <Route path="/student" component={Student} />
+      <Redirect from="/" to="/student/dashboard" />
     </Switch>
   </Router>,
   document.getElementById("root")

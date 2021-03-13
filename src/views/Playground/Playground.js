@@ -14,7 +14,7 @@ import styles from "assets/jss/material-dashboard-react/views/iconsStyle.js";
 
 const useStyles = makeStyles(styles);
 
-export default function Icons() {
+export default function Playground() {
   const classes = useStyles();
   return (
     <GridContainer>
