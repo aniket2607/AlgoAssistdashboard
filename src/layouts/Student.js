@@ -17,6 +17,10 @@ import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 import bgImage from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
 
+//___________For theme change___________________
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { Paper } from "@material-ui/core";
+
 let ps;
 
 const switchRoutes = (
@@ -77,7 +81,17 @@ export default function Student({ ...rest }) {
       window.removeEventListener("resize", resizeFunction);
     };
   }, [mainPanel]);
+  //_______________Theme setting_________
+  const [darkState, setDarkState] = React.useState(false);
+  const palletType = darkState ? "light" : "dark";
+  const darkTheme = createMuiTheme({
+    palette: {
+      type: palletType,
+    },
+  });
   return (
+    <ThemeProvider theme={darkTheme}>
+    <Paper>
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
@@ -106,5 +120,7 @@ export default function Student({ ...rest }) {
         {getRoute() ? <Footer /> : null}
       </div>
     </div>
+    </Paper>
+    </ThemeProvider>
   );
 }
