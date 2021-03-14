@@ -21,6 +21,7 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import BubbleSort from "views/Subjects/Algorithm/BubbleSort/BubbleSort.js";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import SubmitAssignment from "components/Assignment/SubmitAssignment.js"
 
 // core components
 import Student from "layouts/Student.js";

@@ -17,15 +17,15 @@ var delays2 = 80,
 
 const dailySalesChart = {
   data: {
-    labels: ["M", "T", "W", "T", "F", "S", "S"],
-    series: [[12, 17, 7, 17, 23, 18, 38]]
+    labels: [1,2,3,4,5,6,7,8,9,10,11,12,13],
+    series: [[0,10,25,36, 36, 48, 58,67,67,80,90,90,100,107]]
   },
   options: {
     lineSmooth: Chartist.Interpolation.cardinal({
       tension: 0
     }),
     low: 0,
-    high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    high: 150, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
     chartPadding: {
       top: 0,
       right: 0,
@@ -72,39 +72,28 @@ const dailySalesChart = {
 const emailsSubscriptionChart = {
   data: {
     labels: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "Mai",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
+      "Sorting","Searching","Tree-Based","Graph-Based"
     ],
-    series: [[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]]
+    series: [[28,18,0,0]]
   },
   options: {
     axisX: {
       showGrid: false
     },
     low: 0,
-    high: 1000,
+    high: 50,
     chartPadding: {
       top: 0,
-      right: 5,
+      right: 2,
       bottom: 0,
       left: 0
     }
   },
   responsiveOptions: [
     [
-      "screen and (max-width: 640px)",
+      "screen and (max-width: 740px)",
       {
-        seriesBarDistance: 5,
+        seriesBarDistance: 3,
         axisX: {
           labelInterpolationFnc: function(value) {
             return value[0];

@@ -2,7 +2,6 @@ import { Container } from '@material-ui/core';
 import React, {useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import {SubmitAssignmentPopUp} from 'components/Assignment/SubmitAssignmentPopUp';
 import {SubmitQuizPopUp} from 'components/Assignment/SubmitQuizPopUp';
 import { blue } from '@material-ui/core/colors';
 import Table from '@material-ui/core/Table';
@@ -12,7 +11,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
+import { Link } from 'react-router-dom';
+import SubmitAssignment from "./../../components/Assignment/SubmitAssignment";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -99,8 +99,7 @@ export default function StudentAssignment(){
                             {rows.map((row) => (
                                 <StyledTableRow key={row.name}>
                                 <StyledTableCell component="th" scope="row" align = "right">{row.SrNo}</StyledTableCell>
-                                <StyledTableCell align="left" onClick ={openAssignmentpage}>{row.AssignmentHeading}</StyledTableCell>
-                                <SubmitAssignmentPopUp openAssignment={openAssignment} setAssignmentOpen={setAssignmentOpen}/>
+                                <StyledTableCell align="left"><Link to = "/submitAssignment" onClick = {SubmitAssignment}>{row.AssignmentHeading}</Link></StyledTableCell>
                                 <StyledTableCell align="left">{row.DueDate}</StyledTableCell>
                                 <StyledTableCell align="left">{row.Status}</StyledTableCell>
                                 </StyledTableRow>

@@ -39,6 +39,7 @@ import Typography from "views/Typography/Typography.js";
 import Playground from "views/Playground/Playground.js";
 import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
+import SubmitAssignment from "components/Assignment/SubmitAssignment.js";
 
 const dashboardRoutes = [
   {
@@ -131,6 +132,12 @@ const dashboardRoutes = [
     path: "/bubblesort",
     icon: "",
     component: BubbleSort,
+    layout: "/student"
+  },
+  {
+    path: "/submitAssignment",
+    icon: "",
+    component: SubmitAssignment,
     layout: "/student"
   },
 ];
