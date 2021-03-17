@@ -10,7 +10,7 @@ import Navbar from "components/Navbars/Navbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 
-import routes from "routes.js";
+import routes from "routesTeacher.js";
 
 import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 
@@ -26,7 +26,7 @@ let ps;
 const switchRoutes = (
   <Switch>
     {routes.map((prop, key) => {
-      if (prop.layout === "/student") {
+      if (prop.layout === "/teacher") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -37,7 +37,7 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Redirect from="/student" to="/student/dashboard" />
+    <Redirect from="/teacher" to="/teacher/dashboard" />
   </Switch>
 );
 
@@ -56,7 +56,7 @@ export default function Student({ ...rest }) {
     setMobileOpen(!mobileOpen);
   };
   const getRoute = () => {
-    return window.location.pathname !== "/student/maps";
+    return window.location.pathname !== "/teacher/maps";
   };
   const resizeFunction = () => {
     if (window.innerWidth >= 960) {
