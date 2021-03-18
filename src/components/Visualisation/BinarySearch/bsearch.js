@@ -122,9 +122,6 @@ export default function BinarySearch() {
        
        
       </div>
-      <Grid item xs={12} className="commentbin">
-        {/* <div id="execText" className="text" ></div> */}
-        </Grid>
         </Grid>
         <Grid item xs={6}>
         <div className="accord1">

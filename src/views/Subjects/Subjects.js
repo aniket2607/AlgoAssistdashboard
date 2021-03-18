@@ -103,12 +103,24 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes.heading}>Advance Data Structure</Typography>
+          <Typography className={classes.heading}>Advance Data Structures and Algorithm</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Under Construction.
-          </Typography>
+        <div className={classes.root}>
+        <Accordion className={classes.accord}>
+        <AccordionSummary
+          className={classes.expandedPanel1}
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography className={classes.heading}>Tree</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+        <Button className={classes.button} color="primary" round  href="http://localhost:3000/student/bst">Binary Search Tree (BST)</Button>
+        </AccordionDetails>
+      </Accordion>
+      </div>
         </AccordionDetails>
       </Accordion>
 
@@ -122,7 +134,7 @@ export default function SimpleAccordion() {
           <Typography className={classes.heading}>Machine Learning</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+      <Typography>
             Under Construction.
           </Typography>
         </AccordionDetails>

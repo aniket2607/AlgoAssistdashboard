@@ -45,6 +45,11 @@ const routes = [
     component: "Student",
   },
   {
+    path: ["/student/bst"],
+    exact: true,
+    component: "Student",
+  },
+  {
     path: ["/student/assignment"],
     exact: true,
     component: "Student",

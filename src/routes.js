@@ -34,6 +34,7 @@ import SelectionSort from "views/Subjects/Algorithm/SelectionSort/SelectionSort.
 import MergeSort from "views/Subjects/Algorithm/MergeSort/MergeSort.js";
 import LinearSearch from "views/Subjects/Algorithm/LinearSearch/LinearSearch.js"
 import BinarySearch from "views/Subjects/Algorithm/BinarySearch/BinarySearch.js"
+import BST from "views/Subjects/Algorithm/BST/BST.js"
 import StudentAssignment from "views/StudentAssignment/StudentAssignment.js"
 import Typography from "views/Typography/Typography.js";
 import Playground from "views/Playground/Playground.js";
@@ -132,6 +133,12 @@ const dashboardRoutes = [
     path: "/bubblesort",
     icon: "",
     component: BubbleSort,
+    layout: "/student"
+  },
+  {
+    path: "/bst",
+    icon: "",
+    component: BST,
     layout: "/student"
   },
   {
