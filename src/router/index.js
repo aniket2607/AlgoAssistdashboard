@@ -6,19 +6,16 @@ import routes from "./config";
 import GlobalStyles from "../globalStyles";
 import { BoxesLoader } from "react-awesome-loaders";
 import "assets/css/material-dashboard-react.css?v=1.9.0";
-
+import './index.css';
+import Loader from "components/Loader/Loader"
 const hist = createBrowserHistory();
+
 
 
 const Router = () => {
   return (
-    <Suspense fallback={<BoxesLoader
-      boxColor={"#6366F1"}
-      style={{ marginBottom: "20px" }}
-      desktopSize={"128px"}
-      mobileSize={"80px"}
-      duration={2000}
-    />}>
+    <Suspense fallback={<Loader/>}>
+     
       {/* <GlobalStyles /> */}
       <Switch>
         {routes.map((routeItem) => {
@@ -27,7 +24,12 @@ const Router = () => {
               key={routeItem.component}
               path={routeItem.path}
               exact={routeItem.exact}
-              component={lazy(() => import(`../pages/${routeItem.component}`))}
+              component={lazy(() => {
+                return new Promise(resolve => {
+                  setTimeout(() => resolve(import(`../pages/${routeItem.component}`)), 1000);
+                });
+              })}
+
 
             />
           );

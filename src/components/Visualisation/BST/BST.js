@@ -1,5 +1,4 @@
 import Diagram,{ useSchema, createSchema } from 'beautiful-react-diagrams';
-import { Search } from 'react-feather';
 import bstsearch from './BSTsearch'
 import bstinsert from './BSTinsert'
 import bstdelete from './BSTdelete'

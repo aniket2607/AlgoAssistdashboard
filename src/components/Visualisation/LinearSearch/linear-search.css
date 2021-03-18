@@ -18,7 +18,7 @@
   .cell1 {
     position: relative;
     background-size: cover;
-    width: 100%;
+    width: 100px;
     height: 100px;
     overflow: hidden;
     text-transform: uppercase;
@@ -80,11 +80,11 @@
   .Arrow1 {
     position: absolute;
     left: 42%;
-    top: 100px;
+    top: 125px!important;
     border: solid rgb(62, 19, 182);
     border-width: 0 6px 6px 0;
     display: inline-block;
-    padding: 3px;
+    padding-top: 5px;
     opacity: 1;
  }
   

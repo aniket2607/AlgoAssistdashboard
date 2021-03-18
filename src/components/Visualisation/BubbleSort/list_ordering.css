@@ -19,7 +19,7 @@
   .cell {
     position: relative;
     background-size: cover;
-    width: 100%;
+    width: 85px !important;
     height: 400px;
     overflow: hidden;
     text-transform: uppercase;
