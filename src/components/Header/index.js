@@ -2,6 +2,8 @@ import { useState, Fragment, lazy } from "react";
 import { Row, Col, Drawer } from "antd";
 import { CSSTransition } from "react-transition-group";
 import { withTranslation } from "react-i18next";
+import { ReactComponent as Logo } from './logo.svg';
+import newlogo from './mewlogo.png';
 
 import * as S from "./styles";
 
@@ -31,21 +33,12 @@ const Header = ({ t }) => {
     };
     return (
       <Fragment>
-        <S.CustomNavLinkSmall onClick={() => scrollTo("about")}>
-          <S.Span>{t("About")}</S.Span>
-        </S.CustomNavLinkSmall>
-        <S.CustomNavLinkSmall onClick={() => scrollTo("mission")}>
-          <S.Span>{t("Mission")}</S.Span>
-        </S.CustomNavLinkSmall>
-        <S.CustomNavLinkSmall onClick={() => scrollTo("product")}>
-          <S.Span>{t("Product")}</S.Span>
-        </S.CustomNavLinkSmall>
         <S.CustomNavLinkSmall
           style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
+          onClick={event =>  window.location.href='/login'}
         >
           <S.Span>
-            <Button>{t("Contact")}</Button>
+            <Button>{t("Login")}</Button>
           </S.Span>
         </S.CustomNavLinkSmall>
       </Fragment>
@@ -56,8 +49,9 @@ const Header = ({ t }) => {
     <S.Header>
       <S.Container>
         <Row type="flex" justify="space-between" gutter={20}>
-          <S.LogoContainer to="/" aria-label="homepage">
-            <SvgIcon src="logo.svg" />
+         <S.LogoContainer to="/" aria-label="homepage">  
+          <Logo/>
+          {/* <img src={newlogo} alt="Logo" /> */}
           </S.LogoContainer>
           <S.NotHidden>
             <MenuItem />
