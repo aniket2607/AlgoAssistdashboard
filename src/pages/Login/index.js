@@ -19,12 +19,10 @@ import { Redirect } from 'react-router-dom'
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
       <Link color="inherit" href="http://localhost:3000/">
         AlgoAssist
       </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      , Made with <i class="fa fa-heart pulse"></i> for a better learning
     </Typography>
   );
 }
