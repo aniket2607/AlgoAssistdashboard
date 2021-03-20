@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import {  Route, Switch, Redirect } from "react-router-dom";
+import {  Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import routes from "./config";

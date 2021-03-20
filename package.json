@@ -55,13 +55,6 @@
   "bugs": {
     "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
   },
-  "homepage": "https://creativetimofficial.github.io/material-dashboard-react/#/dashboard",
-  "optionalDependencies": {
-    "@types/googlemaps": "3.39.6",
-    "@types/markerclustererplus": "2.1.33",
-    "ajv": "6.12.2",
-    "typescript": "3.9.3"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
