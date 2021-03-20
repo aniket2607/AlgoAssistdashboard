@@ -8,8 +8,7 @@ import ProductContent from "../../content/ProductContent.json";
 import ContactContent from "../../content/ContactContent.json";
 import Footer from "components/Footer";
 import Header from "components/Header";
-import GlobalStyles from "../../globalStyles";
-
+import GlobalStyles from "../../globalStyles.js";
 
 const ContactFrom = lazy(() => import("../../components/ContactForm"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
@@ -23,7 +22,7 @@ const Home = () => {
       <GlobalStyles />
       <Header />
       <ScrollToTop />
-      <ContentBlock
+      <ContentBlock 
         type="right"
         first="true"
         title={IntroContent.title}

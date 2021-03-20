@@ -1,15 +1,15 @@
 {
-  "title": "Light, Fast & Responsive",
-  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
+  "title": "Fun, Interactive & Responsive",
+  "text": "Play and learn with our interactive platform and grow along the way.",
   "section": [
     {
-      "title": "Why Antd?",
-      "content": "Ant Design is a React UI library that has a lot of easy-to-use components for building elegant UI.",
+      "title": "Why algorithm?",
+      "content": "Algorithms and data structures being the essentials of Computer Engineering, their core conceptual understanding is of utmost importance.",
       "icon": "notes.svg"
     },
     {
-      "title": "Why styled-components?",
-      "content": "Styled Components gives you total control over your components.",
+      "title": "Why Visualization?",
+      "content": "By human nature and surveys, it can be concluded that it is easy to grasp any topic if explained and illustrated pictorially or graphically.",
       "icon": "notes.svg"
     }
   ]

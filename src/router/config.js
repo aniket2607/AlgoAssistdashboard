@@ -80,6 +80,11 @@ const routes = [
     component: "Student",
   },
   {
+    path: ["/student/submitassignment"],
+    exact: true,
+    component: "Student",
+  },
+  {
     path: ["/teacher", "/teacher/dashboard"],
     exact: true,
     component: "Teacher",

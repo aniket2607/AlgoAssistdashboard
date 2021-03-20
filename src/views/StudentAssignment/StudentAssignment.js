@@ -99,7 +99,7 @@ export default function StudentAssignment(){
                             {rows.map((row) => (
                                 <StyledTableRow key={row.name}>
                                 <StyledTableCell component="th" scope="row" align = "right">{row.SrNo}</StyledTableCell>
-                                <StyledTableCell align="left"><Link to = "/submitAssignment" onClick = {SubmitAssignment}>{row.AssignmentHeading}</Link></StyledTableCell>
+                                <StyledTableCell align="left" ><a href="http://localhost:3000/student/submitassignment">{row.AssignmentHeading}</a></StyledTableCell>
                                 <StyledTableCell align="left">{row.DueDate}</StyledTableCell>
                                 <StyledTableCell align="left">{row.Status}</StyledTableCell>
                                 </StyledTableRow>

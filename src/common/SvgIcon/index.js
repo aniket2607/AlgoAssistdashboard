@@ -1,7 +1,6 @@
-import logo from './developer.svg';
 
 const SvgIcon = ({ src, width, height }) => (
-  <img src={logo} alt={src} with={width} height={height} />
+  <img src={`/img/svg/${src}`} alt={src} with={width} height={height} />
 );
 
 export default SvgIcon;

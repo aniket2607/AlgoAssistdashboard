@@ -42,6 +42,7 @@ import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
 import SubmitAssignment from "components/Assignment/SubmitAssignment.js";
 
+
 const dashboardRoutes = [
   {
     path: "/dashboard",
@@ -92,6 +93,7 @@ const dashboardRoutes = [
     component: Playground,
     layout: "/student"
   },
+  
   {
     path: "/notifications",
     name: "Notifications",
@@ -142,7 +144,7 @@ const dashboardRoutes = [
     layout: "/student"
   },
   {
-    path: "/submitAssignment",
+    path: "/submitassignment",
     icon: "",
     component: SubmitAssignment,
     layout: "/student"

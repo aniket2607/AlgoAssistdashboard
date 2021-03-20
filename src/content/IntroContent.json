@@ -1,13 +1,7 @@
 {
-  "title": "Landing page template for developers & startups",
-  "text": "Beautifully designed templates using React.js, ant design and styled-components! Save weeks of time and build your landing page in minutes.",
+  "title": "VisualiZE With us @ AlgoAssist",
+  "text": "\"Visualization answers to questions you didn’t know you had. \" -Ben Schneiderman",
   "button": [
-    {
-      "title": "Explore"
-    },
-    {
-      "title": "Learn More",
-      "color": "#fff"
-    }
+    
   ]
 }
