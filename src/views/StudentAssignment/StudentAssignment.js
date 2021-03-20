@@ -127,8 +127,7 @@ export default function StudentAssignment(){
                                 <StyledTableCell component="th" scope="row" align = "right">
                                     {row.SrNo}
                                 </StyledTableCell>
-                                <StyledTableCell align="left" onClick ={openQuizpage}>{row.QuizHeading}</StyledTableCell>
-                                <SubmitQuizPopUp openQuiz={openQuiz} setQuizOpen={setQuizOpen}/>
+                                <StyledTableCell align="left" ><a href="http://localhost:3000/student/submitquiz">{row.QuizHeading}</a></StyledTableCell>
                                 <StyledTableCell align="left" >{row.DueDate}</StyledTableCell>
                                 <StyledTableCell align="left">{row.Status}</StyledTableCell>
                                 </StyledTableRow>

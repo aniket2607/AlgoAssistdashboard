@@ -48,22 +48,22 @@ export default function Dashboard() {
       <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
+            <CardHeader color="success" stats icon>
+              <CardIcon color="success">
                 <Icon>content_copy</Icon>
               </CardIcon>
-              <p className={classes.cardCategory}>Assignments Completed</p>
+              <p className={classes.cardCategory}>Total Assignments Added</p>
               <h3 className={classes.cardTitle}>
-                5/6 
+                3 
               </h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
                 <Danger>
-                  <Warning />
+                  <DateRange />
                 </Danger>
                 <a href="#pablo" onClick={e => e.preventDefault()}>
-                  1 Assignment Pending
+                  20 Students Submitted Assignment
                 </a>
               </div>
             </CardFooter>
@@ -75,18 +75,18 @@ export default function Dashboard() {
               <CardIcon color="warning">
                 <Icon>content_copy</Icon>
               </CardIcon>
-              <p className={classes.cardCategory}>Quizes Completed</p>
+              <p className={classes.cardCategory}>Total Quizes Added</p>
               <h3 className={classes.cardTitle}>
-                4/6 
+                4
               </h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
                 <Danger>
-                  <Warning />
+                  <DateRange />
                 </Danger>
                 <a href="#pablo" onClick={e => e.preventDefault()}>
-                  2 Quizes Pending
+                  18 Students Submitted Quiz
                 </a>
               </div>
             </CardFooter>

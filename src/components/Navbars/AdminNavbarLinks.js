@@ -25,6 +25,7 @@ import Switch from "@material-ui/core/Switch";
 import IconButton from "@material-ui/core/IconButton";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Student from "./../../layouts/Student";
+import {ChangePassword} from "./ChangePassword";
 
 const useStyles = makeStyles(styles);
 
@@ -64,6 +65,11 @@ export default function AdminNavbarLinks() {
   const handleThemeChange = () => {
     setDarkState(!darkState);
   };
+  //_____Change Password setting__________ 
+  const [openChangePassword, setChangePasswordOpen] = React.useState(false);
+  const openChangePasswordPage = () => {
+    setChangePasswordOpen(prev => !prev)
+  }
   return (
     <div>
       <IconButton color="inherit">
@@ -190,18 +196,21 @@ export default function AdminNavbarLinks() {
               <Paper>
                 <ClickAwayListener onClickAway={handleCloseProfile}>
                   <MenuList role="menu">
+                    <a href="http://localhost:3000/student/user">
                     <MenuItem
                       onClick={handleCloseProfile}
                       className={classes.dropdownItem}
                     >
                       Profile
                     </MenuItem>
+                    </a>
                     <MenuItem
-                      onClick={handleCloseProfile}
+                      onClick = {openChangePasswordPage}
                       className={classes.dropdownItem}
                     >
-                      Settings
+                      Change Password
                     </MenuItem>
+                    <ChangePassword openChangePassword= {openChangePassword} setChangePasswordOpen = {setChangePasswordOpen}/>
                     <Divider light />
                     <MenuItem
                       onClick={handleCloseProfile}

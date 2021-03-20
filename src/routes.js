@@ -41,7 +41,7 @@ import Playground from "views/Playground/Playground.js";
 import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
 import SubmitAssignment from "components/Assignment/SubmitAssignment.js";
-
+import SubmitQuizPopUp from "components/Assignment/SubmitQuizPopUp";
 
 const dashboardRoutes = [
   {
@@ -147,6 +147,12 @@ const dashboardRoutes = [
     path: "/submitassignment",
     icon: "",
     component: SubmitAssignment,
+    layout: "/student"
+  },
+  {
+    path: "/submitquiz",
+    icon: "",
+    component: SubmitQuizPopUp,
     layout: "/student"
   },
 ];

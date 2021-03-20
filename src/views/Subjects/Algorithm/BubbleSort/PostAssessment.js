@@ -154,9 +154,9 @@ export default function PostAssessment() {
         {allStepsCompleted() ? (
           <div>
             <Typography className={classes.instructions}>
-              All steps completed - you&apos;re finished
+              Post-Assessment completed Successfully. 
             </Typography>
-            <Button onClick={handleReset}>Reset</Button>
+            
           </div>
         ) : (
           <div>
@@ -176,15 +176,7 @@ export default function PostAssessment() {
                 color="primary" disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                 Back
               </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                className={classes.button}
-                disabled={activeStep === totalSteps() -1 }
-              >
-                Next
-              </Button>
+              
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
                   <Typography variant="caption" className={classes.completed}>
@@ -192,7 +184,7 @@ export default function PostAssessment() {
                   </Typography>
                 ) : (
                   <Button variant="contained" color="primary" onClick={handleComplete}>
-                    {completedSteps() === totalSteps() - 1 ? 'Finish' : 'Submit Test'}
+                    {completedSteps() === totalSteps() - 1 ? 'Submit' : 'Next'}
                   </Button>
                 ))}
             </div>

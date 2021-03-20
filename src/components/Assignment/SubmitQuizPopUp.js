@@ -127,40 +127,10 @@ function getSteps() {
       },
     ];
   
-export const SubmitQuizPopUp = ({openQuiz, setQuizOpen}) =>{
+export default function SubmitQuizPopUp(){
   const classes = useStyles();
   const modalRef = useRef();
 
-  const animation = useSpring({
-    config: {
-      duration: 250
-    },
-    opacity: openQuiz ? 1 : 0,
-    transform: openQuiz ? `translateY(0%)` : `translateY(-100%)`
-  });
-
-  const closeModal = e => {
-    if (modalRef.current === e.target) {
-        setQuizOpen(false);
-    }
-  };
-
-  const keyPress = useCallback(
-    e => {
-      if (e.key === 'Escape' && openQuiz) {
-        setQuizOpen(false);
-        console.log('I pressed');
-      }
-    },
-    [setQuizOpen, openQuiz]
-  );
-  useEffect(
-    () => {
-      document.addEventListener('keydown', keyPress);
-      return () => document.removeEventListener('keydown', keyPress);
-    },
-    [keyPress]
-  );
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
   const steps = getSteps();
@@ -219,27 +189,9 @@ export const SubmitQuizPopUp = ({openQuiz, setQuizOpen}) =>{
   };
 
   return (
-    <>
-    {openQuiz ? (
-      <div>
-      <Modal
-        aria-labelledby="transition-modal-title"        
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open = {openQuiz}
-        onClose = {() => setQuizOpen(prev => !prev)}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <animated.div style = {animation}>
-        <Fade in = {openQuiz}>
-        
-          <div className={classes.paper}>
-                  
-          <div className={classes.root}>
+    <div>
+      <div className={classes.paper}>
+        <div className={classes.root}>
           <h2 style={{ color: blue[500] }}>Quiz</h2>
             <Stepper nonLinear activeStep={activeStep}>
                 {steps.map((label, index) => (
@@ -276,15 +228,6 @@ export const SubmitQuizPopUp = ({openQuiz, setQuizOpen}) =>{
                         color="primary" disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                         Back
                     </Button>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={handleNext}
-                        className={classes.button}
-                        disabled={activeStep === totalSteps() -1 }
-                    >
-                        Next
-                    </Button>
                     {activeStep !== steps.length &&
                         (completed[activeStep] ? (
                         <Typography variant="caption" className={classes.completed}>
@@ -292,20 +235,15 @@ export const SubmitQuizPopUp = ({openQuiz, setQuizOpen}) =>{
                         </Typography>
                         ) : (
                         <Button variant="contained" color="primary" onClick={handleComplete}>
-                            {completedSteps() === totalSteps() - 1 ? 'Finish' : 'Submit Test'}
+                            {completedSteps() === totalSteps() - 1 ? 'Submit' : 'Next'}
                         </Button>
                         ))}
                     </div>
                 </div>
                 )}
             </div>
-            </div>
-          </div>
-        </Fade>
-        </animated.div>
-      </Modal>
+        </div>
       </div>
-    ):null}
-    </>
+    </div>
   );
 }
