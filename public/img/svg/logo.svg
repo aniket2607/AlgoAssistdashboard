@@ -1,5 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="101" height="64.001" viewBox="0 0 101 64.001">
-  <g id="Group_6" data-name="Group 6" transform="translate(10475 -7417)">
-    <path id="lingoapp-icon" d="M2.858,56.844a7.242,7.242,0,0,1,7.148-7.323,7.312,7.312,0,0,1,7.23,7.323A7.23,7.23,0,0,1,10.006,64a7.153,7.153,0,0,1-7.148-7.156Zm0-24.762a7.242,7.242,0,0,1,7.148-7.323,7.312,7.312,0,0,1,7.23,7.323,7.23,7.23,0,0,1-7.23,7.156,7.153,7.153,0,0,1-7.148-7.156ZM3,5.842a7.233,7.233,0,0,1,8.5-5.69,7.31,7.31,0,0,1,5.568,8.657A7.189,7.189,0,0,1,2.995,5.843Zm26.036,51A7.189,7.189,0,1,1,36.179,64a7.153,7.153,0,0,1-7.148-7.156Z" transform="translate(-10477.841 7417.001)" fill="#ff825c" fill-rule="evenodd"/>
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40pt" height="40pt" viewBox="0 0 224.87999 225" version="1.2">
+<defs>
+<g>
+<symbol overflow="visible" id="glyph0-0">
+<path style="stroke:none;" d=""/>
+</symbol>
+<symbol overflow="visible" id="glyph0-1">
+<path style="stroke:none;" d="M 41.3125 -71.140625 L 70.015625 0 L 52.609375 0 L 47.34375 -14.234375 L 20.265625 -14.234375 L 15 0 L -2.421875 0 L 26.296875 -71.140625 Z M 41.828125 -28.453125 L 33.890625 -49.15625 L 33.71875 -49.15625 L 25.78125 -28.453125 Z M 41.828125 -28.453125 "/>
+</symbol>
+</g>
+<clipPath id="clip1">
+  <path d="M 0 0.0585938 L 111.597656 0.0585938 L 111.597656 111.65625 L 0 111.65625 Z M 0 0.0585938 "/>
+</clipPath>
+<clipPath id="clip2">
+  <path d="M 112.339844 112.398438 L 223.9375 112.398438 L 223.9375 223.996094 L 112.339844 223.996094 Z M 112.339844 112.398438 "/>
+</clipPath>
+</defs>
+<g id="surface1">
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(18.03894%,9.408569%,41.569519%);fill-opacity:1;" d="M 0 0.0585938 L 111.597656 0.0585938 L 111.597656 111.65625 L 0 111.65625 Z M 0 0.0585938 "/>
+</g>
+<g style="fill:rgb(99.609375%,46.269226%,14.118958%);fill-opacity:1;">
+  <use xlink:href="#glyph0-1" x="19.52811" y="210.466462"/>
+</g>
+<g style="fill:rgb(99.609375%,46.269226%,14.118958%);fill-opacity:1;">
+  <use xlink:href="#glyph0-1" x="131.977264" y="90.577443"/>
+</g>
+<g clip-path="url(#clip2)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(18.03894%,9.408569%,41.569519%);fill-opacity:1;" d="M 112.339844 112.398438 L 223.9375 112.398438 L 223.9375 223.996094 L 112.339844 223.996094 Z M 112.339844 112.398438 "/>
+</g>
+</g>
 </svg>

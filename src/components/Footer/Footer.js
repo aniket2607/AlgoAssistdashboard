@@ -16,17 +16,14 @@ export default function Footer(props) {
     <footer className={classes.footer}>
       <div className={classes.container}>
         <p className={classes.right}>
-          <span>
-            &copy; {1900 + new Date().getYear()}{" "}
-            <a
+        <span>
+                <a
               href="http://localhost:3000/"
               target="_blank"
-              className={classes.a}
             >
               AlgoAssist
-            </a>
-            , made with love for a better learning
-          </span>
+            </a>, Made with <i class="fa fa-heart pulse"></i> for a better learning
+            </span>
         </p>
       </div>
     </footer>
