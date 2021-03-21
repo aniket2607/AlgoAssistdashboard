@@ -2,16 +2,26 @@ import { Container } from '@material-ui/core';
 import React, {useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import {AddAssignmentPopUp} from 'components/Assignment/AddAssignmentPopUp';
-import {AddQuizPopUp} from 'components/Assignment/AddQuiz';
 import { blue } from '@material-ui/core/colors';
-import Table from '@material-ui/core/Table';
+//import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+// core components
+import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import Table from "components/Table/Table.js";
+import Tasks from "components/Tasks/Tasks.js";
+import CustomTabs from "components/CustomTabs/CustomTabs.js";
+import Danger from "components/Typography/Danger.js";
+import Card from "components/Card/Card.js";
+import CardHeader from "components/Card/CardHeader.js";
+import CardIcon from "components/Card/CardIcon.js";
+import CardBody from "components/Card/CardBody.js";
+import CardFooter from "components/Card/CardFooter.js";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -67,48 +77,61 @@ export default function TeacherAddAssignmentFragment(){
 
     return (
         <div>
-            <Container  fixed>
+          <Container  fixed>
                 <div className={classes.root}>
-                    <Button variant="contained" color="primary" onClick ={openAddAssignmentpage} >
+                  <a href="http://localhost:3000/teacher/addAssignment">
+                    <Button variant="contained" color="primary" >
                         Add Assignment
                     </Button>
-                    
-                    <Button variant="contained" color="primary" onClick = {openAddQuizpage}>
+                  </a> 
+                  <a href="http://localhost:3000/teacher/addQuiz">
+                    <Button variant="contained" color="primary">
                         Add Quiz
                     </Button>
-                    <AddAssignmentPopUp openAddAssignment={openAddAssignment} setAddAssignmentOpen={setAddAssignmentOpen}/>
-                    <br/>
-                    <br/>
-                    <AddQuizPopUp openAddQuiz={openAddQuiz} setAddQuizOpen={setAddQuizOpen}/>
-                    <h3 style={{ color: blue[500] }}>Assignments Added</h3>
-                    <br/>
-                    <TableContainer component={Paper}>
-                        <Table aria-label="customized table">
-                            <TableHead>
-                            <TableRow>
-                                <StyledTableCell align="right">Sr. No.</StyledTableCell>
-                                <StyledTableCell align="left">Assignment Heading</StyledTableCell>
-                                <StyledTableCell align="left">Due Date</StyledTableCell>
-                            </TableRow>
-                            </TableHead>
-                            <TableBody>
-                            {rows.map((row) => (
-                                <StyledTableRow key={row.name}>
-                                <StyledTableCell component="th" scope="row" align = "right">
-                                    {row.SrNo}
-                                </StyledTableCell>
-                                <StyledTableCell align="left">{row.AssignmentHeading}</StyledTableCell>
-                                <StyledTableCell align="left">{row.DueDate}</StyledTableCell>
-                                </StyledTableRow>
-                            ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                    <br/>
-                    <br/>
-                    <h3 style={{ color: blue[500] }}>Quiz Added</h3>
+                  </a>
+                    <br/>     
                 </div>
-            </Container>
-        </div>
+          </Container>
+          <GridContainer>
+            <GridItem xs={12} sm={12} md={12}>
+              <Card>
+                <CardHeader color="primary">
+                  <h4 className={classes.cardTitleWhite}>Assignments Added</h4>
+                </CardHeader>
+                <CardBody>
+                  <Table
+                    tableHeaderColor="primary"
+                    tableHead={["Sr. No.", "Assignment Heading","Description", "Due Date"]}
+                    tableData={[
+                      ["1", "Dakota Rice","jhsdgcuyagedg asbjcbdhjegdjhg mnscb mab", "02/04/2021"],
+                      ["2", "Minerva Hooper","", "02/04/2021"],
+                      ["3", "Sage Rodriguez","jhsdgcuyagedg asbjcbdhjegdjhg mnscb mab", "02/04/2021"],
+                      ["4", "Philip Chaney","jhsdgcuyagedg asbjcbdhjegdjhg mnscb mab", "02/04/2021"]
+                    ]}
+                  />
+                </CardBody>
+              </Card>
+            </GridItem>
+            <GridItem xs={12} sm={12} md={12}>
+              <Card>
+                <CardHeader color="primary">
+                  <h4 className={classes.cardTitleWhite}>Quizzes Added</h4>
+                </CardHeader>
+                <CardBody>
+                  <Table
+                    tableHeaderColor="primary"
+                    tableHead={["Sr. No.", "Quiz Heading", "Due Date"]}
+                    tableData={[
+                      ["1", "Dakota Rice", "02/04/2021"],
+                      ["2", "Minerva Hooper", "02/04/2021"],
+                      ["3", "Sage Rodriguez", "02/04/2021"],
+                      ["4", "Philip Chaney", "02/04/2021"]
+                    ]}
+                  />
+                </CardBody>
+              </Card>
+            </GridItem>
+          </GridContainer>
+    </div>
     )
 }

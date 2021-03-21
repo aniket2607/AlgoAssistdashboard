@@ -26,7 +26,7 @@ import Unarchive from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
 import DashboardPage from "views/Teacher/TeacherDashboard/Dashboard.js";
-import UserProfile from "views/UserProfile/UserProfile.js";
+import UserProfile from "views/Teacher/TeacherUserProfile/UserProfile";
 import Leaderboard from "views/Leaderboard/Leaderboard.js";
 import Subjects from "views/Subjects/Subjects.js";
 import BubbleSort from "views/Subjects/Algorithm/BubbleSort/BubbleSort.js";
@@ -40,6 +40,10 @@ import Playground from "views/Playground/Playground.js";
 import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
 import SubmitAssignment from "components/Assignment/SubmitAssignment.js";
+import StudentsReport from "views/Teacher/StudentsReport/StudentsReport";
+import IndividualStudentReport from "views/Teacher/StudentsReport/IndividualStudentReport";
+import AddAssignment from "components/Assignment/AddAssignmentPopUp";
+import AddQuiz from "components/Assignment/AddQuiz";
 
 const dashboardRoutes = [
   {
@@ -57,10 +61,10 @@ const dashboardRoutes = [
     layout: "/teacher"
   },
   {
-    path: "/subjects",
-    name: "Subjects",
+    path: "/studentsReport",
+    name: "Student's Report",
     icon: "content_paste",
-    component: Subjects,
+    component: StudentsReport,
     layout: "/teacher"
   },
   {
@@ -138,6 +142,24 @@ const dashboardRoutes = [
     path: "/submitAssignment",
     icon: "",
     component: SubmitAssignment,
+    layout: "/teacher"
+  },
+  {
+    path: "/addAssignment",
+    icon: "",
+    component: AddAssignment,
+    layout: "/teacher"
+  },
+  {
+    path: "/addQuiz",
+    icon: "",
+    component: AddQuiz,
+    layout: "/teacher"
+  },
+  {
+    path: "/individualStudentReport",
+    icon: "",
+    component: IndividualStudentReport,
     layout: "/teacher"
   },
 ];

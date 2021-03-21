@@ -58,61 +58,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export const AddAssignmentPopUp = ({openAddAssignment, setAddAssignmentOpen}) =>{
+export default function AddAssignment(){
   const classes = useStyles();
   const modalRef = useRef();
 
-  const animation = useSpring({
-    config: {
-      duration: 250
-    },
-    opacity: openAddAssignment ? 1 : 0,
-    transform: openAddAssignment ? `translateY(0%)` : `translateY(-100%)`
-  });
-
-  const closeModal = e => {
-    if (modalRef.current === e.target) {
-        setAddAssignmentOpen(false);
-    }
-  };
-
-  const keyPress = useCallback(
-    e => {
-      if (e.key === 'Escape' && openAddAssignment) {
-        setAddAssignmentOpen(false);
-        console.log('I pressed');
-      }
-    },
-    [setAddAssignmentOpen, openAddAssignment]
-  );
-  useEffect(
-    () => {
-      document.addEventListener('keydown', keyPress);
-      return () => document.removeEventListener('keydown', keyPress);
-    },
-    [keyPress]
-  );
-
-
-  return (
-    <>
-    {openAddAssignment ? (
-      <div>
-      <Modal
-        aria-labelledby="transition-modal-title"        
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open = {openAddAssignment}
-        onClose = {() => setAddAssignmentOpen(prev => !prev)}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <animated.div style = {animation}>
-        <Fade in = {openAddAssignment}>
-        
+  return (    
           <div className={classes.paper}>
                   
             <h2 style={{ color: blue[500] }}>Add Assignment</h2>
@@ -126,7 +76,7 @@ export const AddAssignmentPopUp = ({openAddAssignment, setAddAssignmentOpen}) =>
                   </TableRow>
                   <TableRow>
                       <TableCell>Description(If any)</TableCell>
-                      <TableCell variant="outlined"><input type = "text" margin="dense" required/> </TableCell>
+                      <TableCell variant="outlined"><input type = "textarea" margin="dense" required/> </TableCell>
                   </TableRow>               
                   <TableRow>
                       <TableCell>Due Date</TableCell>
@@ -140,11 +90,5 @@ export const AddAssignmentPopUp = ({openAddAssignment, setAddAssignmentOpen}) =>
                 Add
             </Button>
           </div>
-        </Fade>
-        </animated.div>
-      </Modal>
-      </div>
-    ):null}
-    </>
   );
 }

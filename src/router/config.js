@@ -104,6 +104,31 @@ const routes = [
     exact: true,
     component: "Teacher",
   },
+  {
+    path: ["/teacher/studentsReport"],
+    exact: true,
+    component: "Teacher",
+  },
+  {
+    path: ["/teacher/addAssignment"],
+    exact: true,
+    component: "Teacher",
+  },
+  {
+    path: ["/teacher/addQuiz"],
+    exact: true,
+    component: "Teacher",
+  },
+  {
+    path: ["/teacher/individualStudentReport"],
+    exact: true,
+    component: "Teacher",
+  },
+  {
+    path: ["/teacher/user"],
+    exact: true,
+    component: "Teacher",
+  },
 ];
 
 export default routes;
