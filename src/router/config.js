@@ -129,6 +129,26 @@ const routes = [
     exact: true,
     component: "Teacher",
   },
+  {
+    path: ["/teacher/evaluate"],
+    exact: true,
+    component: "Teacher",
+  },
+  {
+    path: ["/teacher/evaluationlist"],
+    exact: true,
+    component: "Teacher",
+  },
+  {
+    path: ["/teacher/evaluatesubmission"],
+    exact: true,
+    component: "Teacher",
+  },
+  {
+    path: ["/teacher/openFile"],
+    exact: true,
+    component: "Teacher",
+  },
 ];
 
 export default routes;

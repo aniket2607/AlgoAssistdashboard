@@ -44,6 +44,10 @@ import StudentsReport from "views/Teacher/StudentsReport/StudentsReport";
 import IndividualStudentReport from "views/Teacher/StudentsReport/IndividualStudentReport";
 import AddAssignment from "components/Assignment/AddAssignmentPopUp";
 import AddQuiz from "components/Assignment/AddQuiz";
+import Evaluate from "views/Teacher/Evaluate/Evaluate";
+import AssignmentSubmissionList from "views/Teacher/Evaluate/AssignmentSubmissionList";
+import EvaluateSubmission from "views/Teacher/Evaluate/EvaluateSubmission";
+import OpenFile from "views/Teacher/Evaluate/OpenFile";
 
 const dashboardRoutes = [
   {
@@ -72,6 +76,13 @@ const dashboardRoutes = [
     name: "Assignment",
     icon: "content_paste",
     component: TeacherAssignment,
+    layout: "/teacher"
+  },
+  {
+    path: "/evaluate",
+    name: "Evaluate",
+    icon: "content_paste",
+    component: Evaluate,
     layout: "/teacher"
   },
   {
@@ -160,6 +171,24 @@ const dashboardRoutes = [
     path: "/individualStudentReport",
     icon: "",
     component: IndividualStudentReport,
+    layout: "/teacher"
+  },
+  {
+    path: "/evaluationlist",
+    icon: "",
+    component: AssignmentSubmissionList,
+    layout: "/teacher"
+  },
+  {
+    path: "/evaluatesubmission",
+    icon: "",
+    component: EvaluateSubmission,
+    layout: "/teacher"
+  },
+  {
+    path: "/openFile",
+    icon: "",
+    component: OpenFile,
     layout: "/teacher"
   },
 ];

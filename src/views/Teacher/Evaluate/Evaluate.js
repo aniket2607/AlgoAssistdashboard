@@ -23,6 +23,32 @@ import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
+const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }))(TableCell);
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
+
+  function createData(SrNo,AssignmentHeading,DueDate) {
+    return { SrNo,AssignmentHeading,DueDate };
+  }
+  
+  const rows = [
+    createData(1,'Write Short note on different types of testing','02/03/2021'),
+    createData(2,'Write Short note on different types of testing','02/03/2021'),
+    createData(3,'Write Short note on different types of testing','02/03/2021'),
+  ];
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,26 +60,11 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function TeacherAddAssignmentFragment(){
+export default function Evaluate(){
     const classes = useStyles();
 
     return (
         <div>
-          <Container  fixed>
-                <div className={classes.root}>
-                  <a href="http://localhost:3000/teacher/addAssignment">
-                    <Button variant="contained" color="primary" >
-                        Add Assignment
-                    </Button>
-                  </a> 
-                  <a href="http://localhost:3000/teacher/addQuiz">
-                    <Button variant="contained" color="primary">
-                        Add Quiz
-                    </Button>
-                  </a>
-                    <br/>     
-                </div>
-          </Container>
           <GridContainer>
             <GridItem xs={12} sm={12} md={12}>
               <Card>
@@ -64,6 +75,7 @@ export default function TeacherAddAssignmentFragment(){
                   <Table
                     tableHeaderColor="primary"
                     tableHead={["Sr. No.", "Assignment Heading","Description", "Due Date"]}
+                    Link = "http://localhost:3000/teacher/evaluationlist"
                     tableData={[
                       ["1", "Dakota Rice","jhsdgcuyagedg asbjcbdhjegdjhg mnscb mab", "02/04/2021"],
                       ["2", "Minerva Hooper","", "02/04/2021"],

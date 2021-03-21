@@ -41,7 +41,7 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 
 const useStyles = makeStyles(styles);
 
-export default function StudentsReport() {
+export default function AssignmentSubmissionList() {
   const classes = useStyles();
   return (
     <div>
@@ -51,13 +51,14 @@ export default function StudentsReport() {
         <GridItem xs={12} sm={12} md={12}>
           <Card>
             <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>Students's Report</h4>
+              <h3 className={classes.cardTitleWhite}>Assignment Submission List</h3>
+              <h5>Note on sorting algorithms</h5>
             </CardHeader>
             <CardBody>
               <Table
                 tableHeaderColor="primary"
                 tableHead={["Sr. No.","Roll No.", "Name","Class-Div"]}
-                Link = "http://localhost:3000/teacher/individualStudentReport"
+                Link = "http://localhost:3000/teacher/evaluatesubmission"
                 tableData={[
                   ["1", "B1721001","Dakota Rice", "BE-A"],
                   ["2", "B1721002","Minerva Hooper","BE-A" ],
