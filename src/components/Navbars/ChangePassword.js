@@ -1,4 +1,5 @@
-import React,{useRef, useEffect, useCallback} from 'react';
+import React,{useRef, useEffect, useCallback, useState} from 'react';
+import { Redirect } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { useSpring, animated } from 'react-spring';
 import Modal from '@material-ui/core/Modal';
@@ -10,7 +11,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
-
+import changePassword from './ChangePasswordService'
+import { useFormik } from 'formik'
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -87,10 +89,43 @@ export const ChangePassword = ({openChangePassword, setChangePasswordOpen}) =>{
     },
     [keyPress]
   );
+  const [redirect, setredirect] = useState("")
+  const formik = useFormik({
+		initialValues: {
+			oldpass: '',
+			newpass: '',
+      confirmnewpass: '',
+		},
+		onSubmit: (values) => {
+      changePassword({
+        old_password: values.old_password,
+        new_password: values.new_password,
+        confirm_new_password: values.confirm_new_password
+      }).then(result=>{
+        localStorage.clear()
+        setredirect('/login')
+      }).catch(function (error){
+        if(error.request.status === 0){
+          localStorage.clear()
+          setredirect('/login')
+        }
+        if(error.response.status === 400){
+          //todo notify with errors from json
+          setredirect('/student/user')
+        }
+        
+      })
 
-
-  return (
-    <>
+    }
+  });
+  if(redirect.length>0){
+    return(
+    <Redirect from='./' to='/login'></Redirect>
+    );
+  }
+  else{
+    return (
+      <>
     {openChangePassword ? (
       <div>
       <Modal
@@ -104,7 +139,7 @@ export const ChangePassword = ({openChangePassword, setChangePasswordOpen}) =>{
         BackdropProps={{
           timeout: 500,
         }}
-      >
+        >
         <animated.div style = {animation}>
         <Fade in = {openChangePassword}>
         
@@ -114,69 +149,57 @@ export const ChangePassword = ({openChangePassword, setChangePasswordOpen}) =>{
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate >
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="Old Password"
             label="Old Password"
-            type="Old Password"
-            id="oldPassword"
-            autoComplete="current-password"
-          />
+            type="password"
+            id="old_password"
+            onChange={formik.handleChange}
+            />
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            name="New password"
             label="New Password"
-            type="New password"
-            id="newPassword"
-            autoComplete="current-password"
-          />
+            type="password"
+            id="new_password"
+            onChange={formik.handleChange}
+            />
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            name="Confirm Password"
             label="Confirm Password"
-            type="Confirm Password"
-            id="ConfirmPassword"
-            autoComplete="current-password"
-          />
+            type="password"
+            id="confirm_new_password"
+            onChange={formik.handleChange}
+            />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
-          >
+            onClick = {formik.handleSubmit}
+            >
             Change Password
           </Button>
         </form>
       </div>
-      >
+      
     </Container>
         </Fade>
         </animated.div>
       </Modal>
       </div>
-    ):null}
-    </>
-  );
+      ):null}
+      </>
+    );
+  } 
 }
