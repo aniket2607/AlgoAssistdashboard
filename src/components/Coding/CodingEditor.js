@@ -34,10 +34,9 @@ import {
 import ShareIcon from "@material-ui/icons/Share";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
-import GetAppIcon from '@material-ui/icons/GetApp';
+import GetAppIcon from "@material-ui/icons/GetApp";
 import copy from "copy-to-clipboard";
 import { CircleLoader } from "react-awesome-loaders";
-
 
 //extracting all the languages recquired
 languages.forEach((lang) => {
@@ -187,37 +186,30 @@ const SyntaxEditor = (props) => {
 
   const downloadTxtFile = (value) => {
     const element = document.createElement("a");
-    const file = new Blob([value],    
-                {type: 'text/plain;charset=utf-8'});
+    const file = new Blob([value], { type: "text/plain;charset=utf-8" });
     element.href = URL.createObjectURL(file);
-    if (currLang==="C++")
-      element.download = "code.cpp";
-    else if (currLang==="Phython")
-      element.download = "code.pt";
-    else if (currLang==="C")
-      element.download = "code.c";
-    else if (currLang==="JAVA")
-      element.download = "code.java";
-    else if (currLang==="JavaScript")
-    element.download = "code.js";
-      else 
-      element.download = "code.txt";
+    if (currLang === "C++") element.download = "code.cpp";
+    else if (currLang === "Phython") element.download = "code.pt";
+    else if (currLang === "C") element.download = "code.c";
+    else if (currLang === "JAVA") element.download = "code.java";
+    else if (currLang === "JavaScript") element.download = "code.js";
+    else element.download = "code.txt";
     document.body.appendChild(element);
     element.click();
-  }
+  };
 
   return (
     <Fragment>
       <Dialog maxWidth={"sm"} open={isCompiling}>
         {/* <DialogTitle style={{ align: "center" }}>Compiling ...</DialogTitle> */}
         <div className={localClasses.loader}>
-        <CircleLoader
-        meshColor={"#6366F1"}
-        lightColor={"#E0E7FF"}
-        duration={1.5}
-        desktopSize={"90px"}
-        mobileSize={"64px"}
-      />
+          <CircleLoader
+            meshColor={"#6366F1"}
+            lightColor={"#E0E7FF"}
+            duration={1.5}
+            desktopSize={"90px"}
+            mobileSize={"64px"}
+          />
         </div>
       </Dialog>
       <Dialog maxWidth={"sm"} open={isError}>
