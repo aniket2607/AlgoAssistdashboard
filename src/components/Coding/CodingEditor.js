@@ -202,6 +202,7 @@ const SyntaxEditor = (props) => {
     <Fragment>
       <Dialog maxWidth={"sm"} open={isCompiling}>
         {/* <DialogTitle style={{ align: "center" }}>Compiling ...</DialogTitle> */}
+<<<<<<< HEAD
         <div className={localClasses.loader}>
           <CircleLoader
             meshColor={"#6366F1"}
@@ -210,6 +211,16 @@ const SyntaxEditor = (props) => {
             desktopSize={"90px"}
             mobileSize={"64px"}
           />
+=======
+        <div className={localClasses.loader} >
+        <CircleLoader
+        meshColor={"#6366F1"}
+        lightColor={"#E0E7FF"}
+        duration={1.5}
+        desktopSize={"90px"}
+        mobileSize={"64px"}
+      />
+>>>>>>> cf799d76a8b5004fefcaf61cac9156b05bb677ce
         </div>
       </Dialog>
       <Dialog maxWidth={"sm"} open={isError}>
@@ -248,13 +259,13 @@ const SyntaxEditor = (props) => {
           <Typography
             variant="h5"
             style={{
-              fontFamily: "poppins",
+              fontFamily: "Roboto",
               color: "white",
               marginRight: "auto",
               marginTop: "auto",
               marginBottom: "auto",
               marginLeft: "30px",
-              fontWeight: "200",
+              fontWeight: "250",
             }}
           >
             &nbsp;CodeEditor

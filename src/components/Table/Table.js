@@ -44,11 +44,12 @@ export default function CustomTable(props) {
                   return (                     
                     <TableCell className={classes.tableCell} key={key}>
                       <a href={Link}> 
-                        {prop}
+                        {prop[0]}{prop}
                       </a>
                     </TableCell>                    
                   );
                 })}
+                
               </TableRow>
             );
           })}

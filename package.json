@@ -9,6 +9,7 @@
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
+    "@owczar/dashboard-style--airframe": "^0.1.23",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
@@ -16,9 +17,14 @@
     "antd": "^4.10.3",
     "axios": "^0.21.1",
     "beautiful-react-diagrams": "git+https://github.com/Prateek-Thakare/beautiful-react-diagrams.git",
+<<<<<<< HEAD
+=======
+    "bootstrap": "^4.6.0",
+>>>>>>> cf799d76a8b5004fefcaf61cac9156b05bb677ce
     "chartist": "0.10.1",
     "classnames": "2.2.6",
     "copy-to-clipboard": "^3.3.1",
+    "faker": "^5.4.0",
     "formik": "^2.2.6",
     "history": "4.10.1",
     "i18next": "^19.8.4",
@@ -39,6 +45,7 @@
     "react-spring": "^8.0.27",
     "react-swipeable-views": "0.13.9",
     "react-transition-group": "^4.4.1",
+    "reactstrap": "^8.9.0",
     "styled-components": "^5.2.1",
     "web-vitals": "^1.1.0"
   },

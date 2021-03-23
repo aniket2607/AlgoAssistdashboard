@@ -75,7 +75,7 @@ export default function SignInSide() {
 				.then(result => {
 					console.log(result.data);
 					if (result.status === 200 && result.data.token !== "") {
-            localStorage.setItem ('Token ',result.data.token)
+            localStorage.setItem ('Token',result.data.token)
               if (result.data.isTeacher){
                 setRedirect("/teacher")
               }

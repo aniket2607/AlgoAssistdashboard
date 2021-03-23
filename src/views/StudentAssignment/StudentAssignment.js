@@ -50,8 +50,8 @@ export default function StudentAssignment(){
                     Link = "http://localhost:3000/student/submitassignment"
                     tableHead={["Sr. No.", "Assignment Heading","Description", "Due Date"]}
                     tableData={[
-                      ["1", "Dakota Rice","jhsdgcuyagedg asbjcbdhjegdjhg mnscb mab", "02/04/2021"],
-                      ["2", "Minerva Hooper","", "02/04/2021"],
+                      ["1", "Dakota Rice test","jhsdgcuyagedg asbjcbdhjegdjhg mnscb mab", "02/04/2021"],
+                      ["2", "Minerva Hooper","testtesttes", "02/04/2021"],
                       ["3", "Sage Rodriguez","jhsdgcuyagedg asbjcbdhjegdjhg mnscb mab", "02/04/2021"],
                       ["4", "Philip Chaney","jhsdgcuyagedg asbjcbdhjegdjhg mnscb mab", "02/04/2021"]
                     ]}
@@ -70,7 +70,7 @@ export default function StudentAssignment(){
                     Link = "http://localhost:3000/student/submitquiz"
                     tableHead={["Sr. No.", "Quiz Heading", "Due Date"]}
                     tableData={[
-                      ["1", "Dakota Rice", "02/04/2021"],
+                      ["1", <a href="test.com">Dakota Rice Test</a>, "02/04/2021"],
                       ["2", "Minerva Hooper", "02/04/2021"],
                       ["3", "Sage Rodriguez", "02/04/2021"],
                       ["4", "Philip Chaney", "02/04/2021"]
