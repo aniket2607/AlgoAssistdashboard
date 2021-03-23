@@ -13,6 +13,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
 import changePassword from './ChangePasswordService'
 import { useFormik } from 'formik'
+import Snackbar from "components/Snackbar/Snackbar.js";
+import AddAlert from "@material-ui/icons/AddAlert";
+
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -56,8 +60,31 @@ const useStyles = makeStyles((theme) => ({
 
 
 export const ChangePassword = ({openChangePassword, setChangePasswordOpen}) =>{
+  const [bc, setBC] = React.useState(false);
+  const [tl, setTL] = React.useState(false);
   const classes = useStyles();
   const modalRef = useRef();
+
+  const showNotification = place => {
+    switch (place) {
+      case "bc":
+        if (!bc) {
+          setBC(true);
+          setTimeout(function() {
+            setBC(false);
+          }, 4000);
+        }
+        break;
+        case "tl":
+          if (!tl) {
+            setTL(true);
+            setTimeout(function() {
+              setTL(false);
+            }, 4000);
+          }
+          break;
+    }
+  };
 
   const animation = useSpring({
     config: {
@@ -104,15 +131,18 @@ export const ChangePassword = ({openChangePassword, setChangePasswordOpen}) =>{
       }).then(result=>{
         localStorage.clear()
         setredirect('/login')
-      }).catch(function (error){
+      }).catch(error=>{
         if(error.request.status === 0){
           localStorage.clear()
-          setredirect('/login')
-        }
-        if(error.response.status === 400){
+          showNotification("bc")
+          setTimeout(function() { setredirect('/login'); }, 5000);
+      }
+        else if(error.response.status === 400){
           //todo notify with errors from json
-          setredirect('/student/user')
+         showNotification("tl")
+         setTimeout(function() {setredirect('/student/user'); }, 5000);
         }
+        
         
       })
 
@@ -149,7 +179,7 @@ export const ChangePassword = ({openChangePassword, setChangePasswordOpen}) =>{
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <form className={classes.form} noValidate >
+        <form className={classes.form}  >
           <TextField
             variant="outlined"
             margin="normal"
@@ -191,6 +221,25 @@ export const ChangePassword = ({openChangePassword, setChangePasswordOpen}) =>{
             Change Password
           </Button>
         </form>
+        <Snackbar
+                  place="bc"
+                  color="danger"
+                  icon={AddAlert}
+                  message="Internal Api Error. Please Login"
+                  open={bc}
+                  closeNotification={() => setBC(false)}
+                  close
+                />
+          <Snackbar
+                  place="bc"
+                  color="danger"
+                  icon={AddAlert}
+                  message="Invalid Credentials."
+                  open={tl}
+                  closeNotification={() => setTL(false)}
+                  close
+                />
+
       </div>
       
     </Container>

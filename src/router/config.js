@@ -75,7 +75,7 @@ const routes = [
     component: "Student",
   },
   {
-    path: ["/student/typography"],
+    path: ["/student/forum"],
     exact: true,
     component: "Student",
   },

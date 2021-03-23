@@ -36,7 +36,7 @@ import LinearSearch from "views/Subjects/Algorithm/LinearSearch/LinearSearch.js"
 import BinarySearch from "views/Subjects/Algorithm/BinarySearch/BinarySearch.js"
 import BST from "views/Subjects/Algorithm/BST/BST.js"
 import StudentAssignment from "views/StudentAssignment/StudentAssignment.js"
-import Typography from "views/Typography/Typography.js";
+import Tasks from "views/DiscussionForum";
 import Playground from "views/Playground/Playground.js";
 import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
@@ -80,10 +80,10 @@ const dashboardRoutes = [
     layout: "/student"
   },
   {
-    path: "/typography",
-    name: "Typography",
+    path: "/forum",
+    name: "Discussion Forum",
     icon: LibraryBooks,
-    component: Typography,
+    component: Tasks,
     layout: "/student"
   },
   {

@@ -13,10 +13,15 @@ import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import { getUserProfile, updateUserProfile } from './UserProfileService'
+import IconButton from '@material-ui/core/IconButton';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import avatar from "assets/img/faces/marc.jpg";
 import { Redirect } from 'react-router-dom'
 import { useFormik } from 'formik';
 import { render } from "@testing-library/react";
+import Snackbar from "components/Snackbar/Snackbar.js";
+import AddAlert from "@material-ui/icons/AddAlert";
+
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -36,9 +41,48 @@ const styles = {
   }
 };
 
+
+
 const useStyles = makeStyles(styles);
 
 export default function UserProfile() {
+
+  const [bc, setBC] = React.useState(false);
+  const [tl, setTL] = React.useState(false);
+
+  const showNotification = place => {
+    switch (place) {
+      case "bc":
+        if (!bc) {
+          setBC(true);
+          setTimeout(function() {
+            setBC(false);
+          }, 4000);
+        }
+        break;
+        case "tl":
+          if (!tl) {
+            setTL(true);
+            setTimeout(function() {
+              setTL(false);
+            }, 4000);
+          }
+          break;
+    }
+  };
+
+
+  const [profileImg, setprofileImg] = useState(avatar)
+  const imageHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () =>{
+      if(reader.readyState === 2){
+        setprofileImg(reader.result)
+      }
+    }
+    reader.readAsDataURL(e.target.files[0])
+  };
+
   const classes = useStyles();
   const [isChanged, setisChanged] = useState(0)
   const [data, setData] = useState({})
@@ -50,12 +94,13 @@ export default function UserProfile() {
     }).catch(error=>{
       if(error.request.status === 0){
         localStorage.clear()
-        
-        setRedirect('/login')
+        showNotification("bc")
+        setTimeout(function() { setRedirect('/login'); }, 5000);
       }
       else if(error.response.status === 401){
         localStorage.clear()
-        setRedirect('/login')
+        showNotification("tl")
+        setTimeout(function() { setRedirect('/login'); }, 5000);
       }
     })
     
@@ -113,10 +158,14 @@ export default function UserProfile() {
       <GridItem xs={12} sm={12} md={5}>
           <Card profile>
             <CardAvatar profile>
-              <a href="#pablo" onClick={e => e.preventDefault()}>
-                <img src={avatar} alt="..." />
-              </a>
+                <img src={profileImg} alt="..." />
             </CardAvatar>
+            <input accept="image/*" style={{display:'none'}} id="icon-button-file" type="file" onChange={imageHandler} />
+      <label htmlFor="icon-button-file">
+        <IconButton color="primary" aria-label="upload picture" component="span">
+          <PhotoCamera />
+        </IconButton>
+      </label>
             <CardBody profile>
               <h6 className={classes.cardCategory}>{data.firstname} {data.lastname}</h6>
               <h4 className={classes.cardTitle} >{data.classdiv}</h4>
@@ -222,6 +271,24 @@ export default function UserProfile() {
           </Card>
           </form>
         </GridItem>
+        <Snackbar
+                  place="bc"
+                  color="danger"
+                  icon={AddAlert}
+                  message="Internal Api Error. Please Login"
+                  open={bc}
+                  closeNotification={() => setBC(false)}
+                  close
+                />
+          <Snackbar
+                  place="bc"
+                  color="danger"
+                  icon={AddAlert}
+                  message="Invalid Credentials. Please Login"
+                  open={tl}
+                  closeNotification={() => setTL(false)}
+                  close
+                />
         
       </GridContainer>
     </div>

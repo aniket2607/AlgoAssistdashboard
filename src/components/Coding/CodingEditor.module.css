@@ -11,12 +11,13 @@
   }
   
   .loader {
-    color: #FE7624;
+    color: #6366F1;
     background-color: transparent;
     font-family: Consolas, Menlo, Monaco, monospace;
     font-weight: bold;
-    font-size: 30vh;
+    font-size: 2vh;
     opacity: 1;
+    align-content: "center";
   }
   .loader span {
     display: inline-block;
