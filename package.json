@@ -17,10 +17,6 @@
     "antd": "^4.10.3",
     "axios": "^0.21.1",
     "beautiful-react-diagrams": "git+https://github.com/Prateek-Thakare/beautiful-react-diagrams.git",
-<<<<<<< HEAD
-=======
-    "bootstrap": "^4.6.0",
->>>>>>> cf799d76a8b5004fefcaf61cac9156b05bb677ce
     "chartist": "0.10.1",
     "classnames": "2.2.6",
     "copy-to-clipboard": "^3.3.1",
