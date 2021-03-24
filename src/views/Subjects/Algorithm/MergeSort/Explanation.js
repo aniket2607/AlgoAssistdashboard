@@ -3,6 +3,7 @@ import React from "react";
 import { blue } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import image from "assets/img/MergeSortExplanation.png";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -71,6 +72,7 @@ export default function Explanation() {
               <li>Merge the smaller lists into new list in sorted order.</li>
             </ul>
           </Typography>
+          <img src={image} alt="Merge Sort Explanation" />
           <h3>Advantages:</h3>
           <Typography>
             <ol>

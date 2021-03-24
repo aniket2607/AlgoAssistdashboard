@@ -3,6 +3,7 @@ import React from "react";
 import { blue } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import image from "assets/img/LinearSearch.png";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -72,6 +73,8 @@ export default function Explanation() {
               </li>
             </ul>
           </Typography>
+
+          <img src={image} alt="Linear Search Explanation" />
 
           <h3>Advantages:</h3>
           <Typography>
