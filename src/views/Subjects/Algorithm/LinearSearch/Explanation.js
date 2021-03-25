@@ -3,7 +3,7 @@ import React from "react";
 import { blue } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import image from "assets/img/LinearSearch.png";
+import image from "assets/img/LinearSearch1.png";
 
 const useStyles = makeStyles((theme) => ({
   modal: {

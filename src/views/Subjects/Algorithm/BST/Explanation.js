@@ -3,6 +3,7 @@ import React from "react";
 import { blue } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import image from "assets/img/BinarySearchTreeExplanation.png";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -56,6 +57,7 @@ export default function Explanation() {
             each store a key greater than all the keys in the node&#39;s left
             subtree and less than those in its right subtree.
           </Typography>
+          <img src={image} alt="Binary Search Tree Explanation" />
           <h3>Operations in BST:</h3>
           <h5>Searching: </h5>
           <p>
