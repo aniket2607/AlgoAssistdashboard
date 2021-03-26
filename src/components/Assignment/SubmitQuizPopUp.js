@@ -13,6 +13,17 @@ import Typography from '@material-ui/core/Typography';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import CardHeader from "components/Card/CardHeader.js";
+import CardBody from "components/Card/CardBody.js";
+import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import Card from "components/Card/Card.js";
+
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -73,63 +84,72 @@ const rows = [
 ];
 
 function getSteps() {
-    return ['','','','',''];
-  }
-  
-  function getStepContent(step) {
-    switch (step) {
-      case 0:
-        return 'Step 1: Select campaign settings...';
-      case 1:
-        return 'Step 2: What is an ad group anyways?';
-      case 2:
-        return 'Step 3: This is the bit I really care about!';
-      default:
-        return 'Unknown step';
+    let arr=[]
+    for(var i=0; i<tutorialSteps.length;i++)
+    {
+        arr.push('')
     }
+    return arr;
   }
+
+  // const getOption= () =>{
+
+  //   for(var i=0; i<Object.keys(tutorialSteps[activeStep]).length; i++)
+  //   {
+  //     <FormControlLabel value={tutorialSteps[activeStep].op1} control={<Radio /> } label= {tutorialSteps[activeStep].op1} />
+
+  //   }
+  // }
+  
+
   const tutorialSteps = [
-      {
-        label: 'What is complexity of bubble sort?',
-        op1:'O(n)',
-        op2:'O(n^2)',
-        op3:'O(1)',
-        op4:'O(logn)',
-          
-      },
-      {
-        label: 'Which of the following is not sorting algorithm?',
-        op1:'O(n)',
-        op2:'O(n^2)',
-        op3:'O(1)',
-        op4:'O(logn)',
-      },
-      {
-        label: 'What is complexity of bubble sort?',
-        op1:'O(n)',
-        op2:'O(n^2)',
-        op3:'O(1)',
-        op4:'O(logn)',
-      },
-      {
-        label: 'What is complexity of selection sort?',
-        op1:'O(n)',
-        op2:'O(n^2)',
-        op3:'O(1)',
-        op4:'O(logn)',
-      },
-      {
-        label: 'What is complexity of merge sort?',
-        op1:'O(n)',
-        op2:'O(n^2)',
-        op3:'O(1)',
-        op4:'O(logn)',
-      },
+    [
+      
+        "Why is bubble sort often presented first when learning sorting   methods?",
+     "it is the fastest",
+       "it is the most efficient",
+       "it is easiest to understand.",
+      "it uses fewer loops than other methods",
+    ],
+    [
+      "Which of the following case doesn't exist in complexity theory?",
+       "Best Case",
+       "Worst Case",
+       "Average Case",
+      "Null Case.",
+    ],
+    [
+      
+        "What is the advantage of bubble sort over other sorting techniques?",
+      "It is faster",
+       "Consumes less memory",
+      "Detects whether the input is already sorted.",
+       "All of the mentioned",
+    ],
+    [
+      
+        "What do you think the design algorithm technique used in Bubble Sort is _________________",
+      "backtracking",
+      "greedy algorithm",
+     "divide and conquer.",
+       "dynamic programming",
+    ],
+    [
+      
+        "What is the maximum number of comparisons if there are 5 elements in array x?",
+       "5",
+       "10.",
+    ],
     ];
   
 export default function SubmitQuizPopUp(){
   const classes = useStyles();
   const modalRef = useRef();
+
+  const [open, setOpen] = React.useState(true);
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
@@ -190,14 +210,41 @@ export default function SubmitQuizPopUp(){
 
   return (
     <div>
-      <div className={classes.paper}>
-        <div className={classes.root}>
-          <h2 style={{ color: blue[500] }}>Quiz</h2>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"DBMS Unit-1 Quiz"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            <ul>
+              <li>The quizzes consists of questions carefully designed to help you self-assess your comprehension of the information presented on the topics covered in the module. </li>
+              <li>Each question in the quiz is of multiple-choice or "true or false" format. Read each question carefully, and click on the button next to your response that is based on the information covered on the topic in the module.</li>
+              <li>Duration of the quiz is 30 minutes.</li>
+             </ul> 
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary" >
+            Start Quiz
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <GridContainer style={{width:"100%"}}>
+        <GridItem xs={12} sm={12} md={12}>
+        <Card>
+            <CardHeader color="primary">
+              <h4 style={{color:"#ffff"}}>Quiz</h4>
+            </CardHeader>
+            <CardBody style={{paddingLeft:"15px",paddingRight:"35px"}}>
+
             <Stepper nonLinear activeStep={activeStep}>
                 {steps.map((label, index) => (
-                <Step key={label}>
+                <Step key={label[0]}>
                     <StepButton onClick={handleStep(index)} completed={completed[index]}>
-                    {label}
+                    {label[0]}
                     </StepButton>
                 </Step>
                 ))}
@@ -213,13 +260,15 @@ export default function SubmitQuizPopUp(){
                 ) : (
                 <div>
                     <br/>
-                    <Typography>{tutorialSteps[activeStep].label}</Typography>
+                    <Typography>{tutorialSteps[activeStep][0]}</Typography>
                     <br/>
                     <RadioGroup onChange={handleChange} color="primary">
-                    <FormControlLabel value={tutorialSteps[activeStep].op1} control={<Radio /> } label= {tutorialSteps[activeStep].op1} />
-                    <FormControlLabel value={tutorialSteps[activeStep].op2} control={<Radio /> } label= {tutorialSteps[activeStep].op2} />
-                    <FormControlLabel value={tutorialSteps[activeStep].op3} control={<Radio /> } label= {tutorialSteps[activeStep].op3} />
-                    <FormControlLabel value={tutorialSteps[activeStep].op4} control={<Radio /> } label= {tutorialSteps[activeStep].op4} />
+                    {
+                        tutorialSteps[activeStep].slice(1,).map((op,index)=>
+                               <FormControlLabel value={op} control={<Radio /> } label= {op} />
+                        )
+                    }
+  
                 
             </RadioGroup>
             <br/>
@@ -228,6 +277,14 @@ export default function SubmitQuizPopUp(){
                         color="primary" disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                         Back
                     </Button>
+                    <Button
+                variant="contained"
+                color="primary"
+                onClick={handleNext}
+                className={classes.button}
+              >
+                Next
+              </Button>
                     {activeStep !== steps.length &&
                         (completed[activeStep] ? (
                         <Typography variant="caption" className={classes.completed}>
@@ -235,15 +292,17 @@ export default function SubmitQuizPopUp(){
                         </Typography>
                         ) : (
                         <Button variant="contained" color="primary" onClick={handleComplete}>
-                            {completedSteps() === totalSteps() - 1 ? 'Submit' : 'Next'}
+                            {completedSteps() === totalSteps() - 1 ? 'Submit Test' : 'Save & Continue'}
                         </Button>
                         ))}
                     </div>
                 </div>
                 )}
             </div>
-        </div>
-      </div>
+            </CardBody>
+          </Card>
+            </GridItem>
+      </GridContainer>
     </div>
   );
 }

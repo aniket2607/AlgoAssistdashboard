@@ -14,7 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import axios_request from './axiosreq'
 import { useFormik } from 'formik';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 function Copyright() {
   return (
@@ -32,8 +32,9 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://source.unsplash.com/user/peterpan25/likes)',
     backgroundRepeat: 'no-repeat',
+   // backgroundImage: 'algo',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
     backgroundSize: 'cover',

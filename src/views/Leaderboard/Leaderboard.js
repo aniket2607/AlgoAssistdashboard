@@ -272,7 +272,7 @@ export default function Leaderboard() {
           <CardHeader color="primary">
             <h4 className={classes.cardTitleWhite}>Leaderboard</h4>
           </CardHeader>
-        </Card>
+        <CardBody>
           <TableContainer>
           <Table
             className={classes.table}
@@ -316,6 +316,8 @@ export default function Leaderboard() {
             </TableBody>
           </Table>
         </TableContainer>
+        </CardBody>
+        </Card>
           
         
       </GridItem>

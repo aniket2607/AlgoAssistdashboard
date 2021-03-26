@@ -149,6 +149,11 @@ const routes = [
     exact: true,
     component: "Teacher",
   },
+  {
+    path: ["/teacher/addstudents"],
+    exact: true,
+    component: "Teacher",
+  },
 ];
 
 export default routes;

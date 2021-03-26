@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function AddAssignment(){
+export default function AddStudents(){
   const classes = useStyles();
   const [selectedDate, setSelectedDate] = React.useState("2019-04-24T10:30");
 
@@ -93,30 +93,13 @@ export default function AddAssignment(){
         <GridItem xs={12} sm={12} md={12}>
           <Card>
             <CardHeader color="primary">
-              <h4 style={{color:"#ffff"}}>Add Assisgnment</h4>
+              <h4 style={{color:"#ffff"}} >Add Students</h4>
+              <p style={{color:"#ffff"}}>
+              Upload .xlsx file of students with their data to register them to the platform
+            </p>
             </CardHeader>
             <CardBody style={{paddingLeft:"15px",paddingRight:"35px"}}>
-            <TextField
-              id="outlined-password-input"
-              label="Assignment Heading"
-              style={{ margin: 10 }}
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              multiline="true"
-              
-        />
-        <TextField
-              id="description"
-              label="Assignment Description (if any)"
-              style={{ margin: 10 }}
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              multiline="true"
-              rows="2"
-              
-        />
+            <div>  
         <FormControl variant="outlined" style={{minWidth: 120,paddingLeft:"15px",marginTop: 10,marginBottom: 8}} >
         <InputLabel id="demo-simple-select-outlined-label"style={{paddingLeft:"15px"}} >Class</InputLabel>
         <Select
@@ -135,23 +118,27 @@ export default function AddAssignment(){
           <MenuItem value={30}>BE-B</MenuItem>
         </Select>
       </FormControl>
-    <div style={{paddingLeft:"9px",marginTop: 15,marginBottom: 8}}>
-    <TextField
-        id="datetime-local"
-        label="Due Date"
-        type="datetime-local"
-        defaultValue={selectedDate}
-        className={classes.textField}
-        onChange={handleDateChange}
-        InputLabelProps={{
-          shrink: true,
-        }}
-        style={{width:220}}
+     
+{/* <input
+        accept="*"
+        className={classes.input}
+        id="contained-button-file"
+        multiple
+        type="file"
       />
-      </div>
+      <label htmlFor="contained-button-file"> */}
+      <FormLabel component="legend" style={{paddingLeft:"15px",marginTop: 13,marginBottom: 8}}>Upload .xlsx file :</FormLabel>
+        {/* <Button variant="contained" color="primary" component="span" style={{left:"15px"}}>
+          Upload
+        </Button> */}
+        <Button variant="contained"component="label"  style={{left:"15px"}}>
+                          <input variant="outlined" type="file" />
+                        </Button>
+      {/* </label> */}
+</div>
 
     <Button variant="contained" color="secondary" style={{marginTop: 18,marginBottom: 8,left:'40%'}}>
-        Post Assisgnment
+        Add Students
       </Button>
             </CardBody>
           </Card>

@@ -6,9 +6,14 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
 import { blue } from '@material-ui/core/colors';
 import Button from '@material-ui/core/Button';
+import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import Card from "components/Card/Card.js";
+import CardHeader from "components/Card/CardHeader.js";
+import CardIcon from "components/Card/CardIcon.js";
+import CardBody from "components/Card/CardBody.js";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
     },
+    width:'100%'
   },
   blue: {
     align: "center",
@@ -61,12 +67,18 @@ export default function SubmitAssignment(){
   const modalRef = useRef();
 
   return (
-      <div>        
-          <div className={classes.paper}>
+    <div className={classes.root} >
+                    
+    <GridContainer style={{width:"100%"}}>
+      
+      <GridItem xs={12} sm={12} md={12}>
                   
-            <h2 style={{ color: blue[500] }}>Assignment</h2>
-                      
-            <TableContainer component={Paper}>
+            <Card>
+            <CardHeader color="primary">
+              <h2 style={{color:"#ffff"}}>Assisgnment</h2>
+            </CardHeader>
+            <CardBody style={{paddingLeft:"15px",paddingRight:"35px"}}>
+            
               <Table className={classes.table} aria-label="caption table">
                 <TableHead>
                 {rows.map((row) => (
@@ -97,11 +109,14 @@ export default function SubmitAssignment(){
                   </TableRow>
                 </TableHead>  
               </Table>
-            </TableContainer>
-            <Button variant="contained" color="primary">
-                Submit
-            </Button>
-          </div>  
+            
+            <Button variant="contained" color="secondary" style={{marginTop: 18,marginBottom: 8,left:'40%'}}>
+        Submit Assisgnment
+      </Button>
+            </CardBody>
+          </Card>
+          </GridItem>
+      </GridContainer> 
       </div>   
   );
 }

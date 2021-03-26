@@ -35,7 +35,7 @@ import MergeSort from "views/Subjects/Algorithm/MergeSort/MergeSort.js";
 import LinearSearch from "views/Subjects/Algorithm/LinearSearch/LinearSearch.js"
 import BinarySearch from "views/Subjects/Algorithm/BinarySearch/BinarySearch.js"
 import TeacherAssignment from "views/Teacher/TeacherAssignment/Assignment.js"
-import Tasks from "views/DiscussionForum";
+//import Tasks from "views/DiscussionForum";
 import Playground from "views/Playground/Playground.js";
 import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
@@ -48,6 +48,7 @@ import Evaluate from "views/Teacher/Evaluate/Evaluate";
 import AssignmentSubmissionList from "views/Teacher/Evaluate/AssignmentSubmissionList";
 import EvaluateSubmission from "views/Teacher/Evaluate/EvaluateSubmission";
 import OpenFile from "views/Teacher/Evaluate/OpenFile";
+import AddStudents from "views/Teacher/AddStudents/AddStudents";
 
 const dashboardRoutes = [
   {
@@ -62,6 +63,13 @@ const dashboardRoutes = [
     name: "Leaderboard",
     icon: "content_paste",
     component: Leaderboard,
+    layout: "/teacher"
+  },
+  {
+    path: "/addstudents",
+    name: "Add students",
+    icon: "content_paste",
+    component: AddStudents,
     layout: "/teacher"
   },
   {
@@ -92,13 +100,13 @@ const dashboardRoutes = [
     component: UserProfile,
     layout: "/teacher"
   },
-  {
-    path: "/forum",
-    name: "Discussion Forum",
-    icon: LibraryBooks,
-    component: Tasks,
-    layout: "/teacher"
-  },
+  // {
+  //   path: "/forum",
+  //   name: "Discussion Forum",
+  //   icon: LibraryBooks,
+  //   component: Tasks,
+  //   layout: "/teacher"
+  // },
   {
     path: "/playground",
     name: "Playground",
