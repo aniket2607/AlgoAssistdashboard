@@ -1,4 +1,4 @@
-import React,{useRef, useEffect, useCallback} from 'react';
+import React,{useState, useEffect, useCallback} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSpring, animated } from 'react-spring';
 import Modal from '@material-ui/core/Modal';
@@ -41,6 +41,8 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { DatePicker } from 'antd';
+import axios, { post } from 'axios';
+import FileUpload from './AddStudentService'
 
 
 
@@ -69,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AddStudents(){
   const classes = useStyles();
   const [selectedDate, setSelectedDate] = React.useState("2019-04-24T10:30");
+  const [selectedFile, setSelectedFile] = useState("");
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -80,6 +83,20 @@ export default function AddStudents(){
   const handleChange = (event) => {
     setClassDiv(event.target.value);
   };
+
+  const  submit=()=>{
+    const data = new FormData() 
+    data.append('file', this.state.selectedFile)
+    console.warn(this.state.selectedFile);
+    let url = "http://127.0.0.1:8000/api/uploadFile/upload/";
+
+    axios.post(url, data, { // receive two parameter endpoint url ,form data 
+    })
+    .then(res => { // then print response status
+        console.warn(res);
+    })
+
+  }
 
 
  
@@ -99,8 +116,7 @@ export default function AddStudents(){
             </p>
             </CardHeader>
             <CardBody style={{paddingLeft:"15px",paddingRight:"35px"}}>
-            <div>  
-        <FormControl variant="outlined" style={{minWidth: 120,paddingLeft:"15px",marginTop: 10,marginBottom: 8}} >
+        {/* <FormControl variant="outlined" style={{minWidth: 120,paddingLeft:"15px",marginTop: 10,marginBottom: 8}} >
         <InputLabel id="demo-simple-select-outlined-label"style={{paddingLeft:"15px"}} >Class</InputLabel>
         <Select
           labelId="demo-simple-select-outlined-label"
@@ -117,7 +133,7 @@ export default function AddStudents(){
           <MenuItem value={30}>BE-A</MenuItem>
           <MenuItem value={30}>BE-B</MenuItem>
         </Select>
-      </FormControl>
+      </FormControl> */}
      
 {/* <input
         accept="*"
@@ -127,19 +143,18 @@ export default function AddStudents(){
         type="file"
       />
       <label htmlFor="contained-button-file"> */}
-      <FormLabel component="legend" style={{paddingLeft:"15px",marginTop: 13,marginBottom: 8}}>Upload .xlsx file :</FormLabel>
-        {/* <Button variant="contained" color="primary" component="span" style={{left:"15px"}}>
-          Upload
-        </Button> */}
+      {/* <FormLabel component="legend" style={{paddingLeft:"15px",marginTop: 13,marginBottom: 8}}>Upload .xlsx file :</FormLabel>
+
         <Button variant="contained"component="label"  style={{left:"15px"}}>
-                          <input variant="outlined" type="file" />
+                          <input variant="outlined" type="file" onChange={(e) => setSelectedFile(e.target.files[0])} />
                         </Button>
-      {/* </label> */}
 </div>
 
     <Button variant="contained" color="secondary" style={{marginTop: 18,marginBottom: 8,left:'40%'}}>
         Add Students
-      </Button>
+      </Button> */}
+      <FileUpload/>
+
             </CardBody>
           </Card>
         </GridItem>

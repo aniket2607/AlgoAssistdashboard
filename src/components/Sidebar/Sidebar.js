@@ -38,8 +38,15 @@ export default function Sidebar(props) {
           prop.path === "/bst" ||
           prop.path === "/mergesort" ||
           prop.path === "/linearsearch" ||
-          prop.path === "/binarysearch"
-        ) {
+          prop.path === "/binarysearch" ||
+          prop.path === "/evaluationlist" ||
+          prop.path === "/submitquiz" ||
+          prop.path === "/addAssignment" ||
+          prop.path === "/addQuiz" ||
+          prop.path === "/individualStudentReport" ||
+          prop.path === "/evaluatesubmission" ||
+          prop.path === "/openFile" 
+            ) {
           activePro = classes.activePro + " ";
           listItemClasses = classNames({
             [" " + classes[color]]: false,
@@ -91,16 +98,17 @@ export default function Sidebar(props) {
   var brand = (
     <div className={classes.logo}>
       <a
-        href="https://www.creative-tim.com?ref=mdr-sidebar"
+        href="http://localhost:3000/"
         className={classNames(classes.logoLink, {
           [classes.logoLinkRTL]: props.rtlActive,
         })}
         target="_blank"
+        style={{fontSize:"25px"}}
       >
         <div className={classes.logoImage}>
           <img src={logo} alt="logo" className={classes.img} />
+          <div style={{fontSize:"22px", paddingLeft:"43px",paddingTop:"5px"}}>{logoText}</div>
         </div>
-        {logoText}
       </a>
     </div>
   );
