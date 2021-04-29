@@ -37,19 +37,19 @@ function createData(name, score, srno, rollno) {
 }
 
 const rows = [
-  createData("Cupcake", 305, 3.7, 67),
-  createData("Donut", 452, 25.0, 51),
-  createData("Eclair", 262, 16.0, 24),
-  createData("Frozen yoghurt", 159, 6.0, 24),
-  createData("Gingerbread", 356, 16.0, 49),
-  createData("Honeycomb", 408, 3.2, 87),
-  createData("Ice cream sandwich", 237, 9.0, 37),
-  createData("Jelly Bean", 375, 0.0, 94),
-  createData("KitKat", 518, 26.0, 65),
-  createData("Lollipop", 392, 0.2, 98),
-  createData("Marshmallow", 318, 0, 81),
-  createData("Nougat", 360, 19.0, 9),
-  createData("Oreo", 437, 18.0, 63),
+  createData("Abhiraj Sinha", 60, 1,1721001 ),
+  createData("Rutuja Chaudhari", 70, 2, 1721002),
+  createData("Aniket Ghandge", 86, 3, 1721003),
+  createData("Hrithik Yadav", 89, 4, 1721004),
+  createData("Ashwini Sayar", 92, 5, 1721005),
+  createData("Prajakta Nigade", 75, 6, 1721006),
+  createData("Bhagyashree Udhane", 56, 7, 1721007),
+  createData("Ayush Singh", 75, 8, 1721008),
+  createData("Rohan Shinde", 58, 9, 1721010),
+  createData("Ashwin Pillai", 92, 10, 1721011),
+  createData("Pranesh Gaikwad", 81, 11, 1721012),
+  createData("Prateek Thakare", 60, 12, 1721013),
+  createData("Tanushree Dharpure", 47, 13, 1721014),
 ];
 
 function descendingComparator(a, b, orderBy) {

@@ -59,10 +59,20 @@ export default function StudentsReport() {
                 tableHead={["Sr. No.","Roll No.", "Name","Class-Div"]}
                 Link = "http://localhost:3000/teacher/individualStudentReport"
                 tableData={[
-                  ["1", "B1721001","Dakota Rice", "BE-A"],
-                  ["2", "B1721002","Minerva Hooper","BE-A" ],
-                  ["3","B1721003", "Sage Rodriguez", "BE-A"],
-                  ["4","B1721004", "Philip Chaney", "BE-A"]
+                  ["1", "B1721001","Abhiraj Sinha", "BE-A"],
+                  ["2", "B1721002","Rutuja Chaudhari","BE-A" ],
+                  ["3","B1721003", "Aniket Ghandge", "BE-A"],
+                  ["4","B1721004", "Hrithik Yadav", "BE-A"],
+                  ["5", "B1721005","Ashwini Sayar", "BE-A"],
+                  ["6", "B1721006","Prajakta Nigade","BE-A" ],
+                  ["7","B1721007", "Bhagyashree Udhane", "BE-A"],
+                  ["8","B1721008", "Ayush Singh", "BE-A"],
+                  ["9","B1721009", "Rohan Shinde", "BE-A"],
+                  ["10","B1721010", "Ashwin Pillai", "BE-A"],
+                  ["11", "B1721011","Pranesh Gaikwad", "BE-A"],
+                  ["12", "B1721012","Prateek Thakare","BE-A" ],
+                  ["13","B1721013", "Tanushree Dharpure", "BE-A"],
+
                 ]}
               />
             </CardBody>

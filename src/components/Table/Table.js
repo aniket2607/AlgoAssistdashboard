@@ -44,7 +44,7 @@ export default function CustomTable(props) {
                   return (                     
                     <TableCell className={classes.tableCell} key={key}>
                       <a href={Link}> 
-                        {prop[0]}{prop}
+                        {prop}
                       </a>
                     </TableCell>                    
                   );

@@ -50,10 +50,10 @@ export default function StudentAssignment(){
                     Link = "http://localhost:3000/student/submitassignment"
                     tableHead={["Sr. No.", "Assignment Heading","Description", "Due Date"]}
                     tableData={[
-                      ["1", "Dakota Rice test","jhsdgcuyagedg asbjcbdhjegdjhg mnscb mab", "02/04/2021"],
-                      ["2", "Minerva Hooper","testtesttes", "02/04/2021"],
-                      ["3", "Sage Rodriguez","jhsdgcuyagedg asbjcbdhjegdjhg mnscb mab", "02/04/2021"],
-                      ["4", "Philip Chaney","jhsdgcuyagedg asbjcbdhjegdjhg mnscb mab", "02/04/2021"]
+                      ["1", "A* algorithm","Write a note on A* algorithm.", "02/05/2021"],
+                      ["2", "Apriori Algorithm","Write a note on Apriori algorithm", "05/05/2021"],
+                      ["3", "K-means algorithm","Write a note on K-means algorithm", "06/05/2021"],
+                      ["4", "Association Rule Mining","Write a note on association rule mining", "07/05/2021"]
                     ]}
                   />
                 </CardBody>
@@ -70,10 +70,10 @@ export default function StudentAssignment(){
                     Link = "http://localhost:3000/student/submitquiz"
                     tableHead={["Sr. No.", "Quiz Heading", "Due Date"]}
                     tableData={[
-                      ["1", <a href="test.com">Dakota Rice Test</a>, "02/04/2021"],
-                      ["2", "Minerva Hooper", "02/04/2021"],
-                      ["3", "Sage Rodriguez", "02/04/2021"],
-                      ["4", "Philip Chaney", "02/04/2021"]
+                      ["1", <a href="test.com">Sorting Algorithm Quiz</a>, "02/04/2021"],
+                      ["2", "Searching Algorithms Quiz", "02/05/2021"],
+                      ["3", "ML algorithms Quiz", "04/05/2021"],
+                      ["4", "Clustering algorithms Quiz", "07/05/2021"]
                     ]}
                   />
                 </CardBody>

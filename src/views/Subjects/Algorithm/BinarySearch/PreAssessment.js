@@ -163,7 +163,7 @@ export default function PreAssessment() {
         {allStepsCompleted() ? (
           <div>
             <Typography className={classes.instructions}>
-              Post-Assessment completed Successfully.
+              Pre-Assessment completed Successfully.
             </Typography>
           </div>
         ) : (
