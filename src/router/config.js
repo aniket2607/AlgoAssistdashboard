@@ -154,6 +154,26 @@ const routes = [
     exact: true,
     component: "Teacher",
   },
+  {
+    path: ["/developer", "/developer/dashboard"],
+    exact: true,
+    component: "Developer",
+  },
+  {
+    path: ["/developer/viewTeacher"],
+    exact: true,
+    component: "Developer",
+  },
+  {
+    path: ["/developer/addTeacher"],
+    exact: true,
+    component: "Developer",
+  },
+  {
+    path: ["/developer/addVisualization"],
+    exact: true,
+    component: "Developer",
+  },
 ];
 
 export default routes;
