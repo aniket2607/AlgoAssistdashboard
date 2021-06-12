@@ -91,6 +91,8 @@ export default function UserProfile() {
   useEffect(() => {
     getUserProfile().then(result =>{
       setData(result.data)
+      console.log("data ===")
+      console.log(data)
     }).catch(error=>{
       if(error.request.status === 0){
         localStorage.clear()

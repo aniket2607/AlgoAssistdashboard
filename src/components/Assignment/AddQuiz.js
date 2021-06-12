@@ -36,6 +36,10 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import QuizQuestion from './QuizQuestion'
+import { useFormik } from 'formik';
+import { Redirect } from 'react-router-dom';
+import {getQuiz, getClassId} from "./AddQuizService";
+import getQuizListValue from "./QuizQuestion";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -84,6 +88,67 @@ export default function AddQuiz(){
     setClassDiv(event.target.value);
   };
 
+   //______Integration code
+   const [data, setData] = useState({})
+   const [redirect, setRedirect] = useState("")
+   
+   const formik = useFormik({
+     initialValues: {
+       title : '',
+       isActive : true,
+       classdiv : '',
+       questions : [],
+       duedate : ''
+     },
+     
+     onSubmit: (values) => {
+       console.log("Inside onsubmit")
+       console.log("getQuizlistvalue")
+       console.log(QuizQuestion.getquizList)
+       getClassId({name: "BE A" })
+         .then(result => {
+           console.log(result)
+           console.log("getclassid Api response")
+           setData(result.data)
+           console.log(data.id);
+         }),
+       //{ title: values.title, description: values.description,_class : data.id ,duedate : values.duedate }	
+       addAssignment({ title: values.title, isActive: true,classdiv : data.id , questions: getQuizListValue}	 )
+         .then(result => {
+           console.log("Api response------------++++++++++=")
+           console.log(result);
+           console.log(result.data.response)
+           console.log(result.data.id)
+           if (result.data.response ===  "Assignment created successfully" && result.data.id !== "") {
+             
+                 setRedirect("/teacher/assignment")
+               
+           }else{
+             setRedirect("/login")
+           }
+ 
+         }).catch(error=>{
+           if(error.request.status === 0){
+             localStorage.clear()
+             //showNotification("bc")
+             setTimeout(function() { setRedirect('/login'); }, 5000);
+           }
+           else if(error.response.status === 401){
+             localStorage.clear()
+             //showNotification("tl")
+             setTimeout(function() { setRedirect('/login'); }, 5000);
+           }
+         })
+         }
+     });
+ 
+     if(redirect.length>0){
+       return(
+         <Redirect from="teacher/assignment" to="/teacher/assignment" />
+       )
+     }
+   //_____Integration end
+
   return (
     
     <div className={classes.root} >               
@@ -94,6 +159,7 @@ export default function AddQuiz(){
               <h4 style={{color:"#ffff"}}>Add Quiz</h4>
             </CardHeader>
             <CardBody style={{paddingLeft:"15px",paddingRight:"35px"}}>
+            <form className={classes.form} noValidate onSubmit={formik.handleSubmit}>
             <TextField
               id="outlined-password-input"
               label="Quiz Title"
@@ -102,7 +168,10 @@ export default function AddQuiz(){
               margin="normal"
               variant="outlined"
               multiline="true"
-              
+              name="title"
+              autoComplete="title"
+              autoFocus
+              onChange = {formik.handleChange}
         />
               
         <div >
@@ -118,10 +187,10 @@ export default function AddQuiz(){
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>TE-A</MenuItem>
-          <MenuItem value={20}>TE-B</MenuItem>
-          <MenuItem value={30}>BE-A</MenuItem>
-          <MenuItem value={30}>BE-B</MenuItem>
+          <MenuItem value="TE-A">TE-A</MenuItem>
+          <MenuItem value="TE-B">TE-B</MenuItem>
+          <MenuItem value="BE-A">BE-A</MenuItem>
+          <MenuItem value="BE-B">BE-B</MenuItem>
         </Select>
       </FormControl>
     <TextField
@@ -129,6 +198,8 @@ export default function AddQuiz(){
         label="Due Date"
         type="datetime-local"
         defaultValue="2020-04-24T10:30"
+        onChange = {formik.handleChange}
+        name = "duedate"
         className={classes.textField}
         InputLabelProps={{
           shrink: true,
@@ -137,10 +208,11 @@ export default function AddQuiz(){
       />
       </div>
 
-        <QuizQuestion/>
-      <Button variant="contained" color="secondary" style={{marginTop: 18,marginBottom: 8,left:'40%'}}>
+        <QuizQuestion />
+      <Button type="submit" variant="contained" color="secondary" style={{marginTop: 18,marginBottom: 8,left:'40%'}} className={classes.Submit}>
         Post Quiz
       </Button>
+      </form>
             </CardBody>
             </Card>
       </GridItem>

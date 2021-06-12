@@ -24,11 +24,18 @@ import Menu from '@material-ui/icons/Menu';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import RadioGroup from '@material-ui/core/RadioGroup';
-
+import { useFormik } from 'formik';
+import { Redirect } from 'react-router-dom';
 
 
 export const isSet = (value) => {
   return value !== undefined && value !== null;
+}
+
+export const getQuizListValue = (value) => {
+  console.log("inside getquiztList")
+  console.log(value)
+  return value;
 }
 
 export const stepOptions = [
@@ -47,8 +54,11 @@ class DynamicStepper extends React.Component {
           activeStep: 0,
           textValue: "",
     checkedOptionValue: "",
+    question:"",
+    marks: 1,
     options: [],
-      }
+      },
+      this.quiztList=[]
   }
 
   changeStepValue(ind, value){
@@ -64,7 +74,37 @@ class DynamicStepper extends React.Component {
     for(let i = 0; i < n; i++){
       newSteps.push({title: null, value: null});
     }
-    this.setState({steps: newSteps, activeStep: newSteps.length -1,textValue: "",checkedOptionValue: "",options: []});
+    this.setState({steps: newSteps, activeStep: newSteps.length -1,textValue: ""});
+    
+      let qlist = {}
+      qlist["question"] = this.state.question;
+      qlist["marks"] = this.state.marks;
+    
+      var choices = {
+        choiceList: []
+    };
+    
+    for(var j in this.state.options) {    
+    
+        var item = this.state.options[j]; 
+        var isAns = false;  
+        if(this.state.options[j].value === this.state.checkedOptionValue)
+          isAns = true
+        else
+          isAns= false
+        choices.choiceList.push({ 
+            "choice" : item.value,
+            "isAnswer" : isAns
+        });
+    }
+    
+      
+      qlist["choices"] = choices.choiceList;
+     
+      this.quiztList.push(qlist);
+ 
+      console.log(this.quiztList)
+      getQuizListValue(this.quiztList)
   }
 
   removeStep(ind){
@@ -87,17 +127,27 @@ class DynamicStepper extends React.Component {
         },
       ],
     });
+  
   };
 
-  handleRadioChange = (e) =>
+  handleRadioChange = (e) =>{
     this.setState({ checkedOptionValue: e.target.value });
-
-
+  }
+  handleQuestionChange = (e) =>{
+    this.setState({ question: e.target.value });
+  }
+  handleMarksChange = (e) =>{
+    this.setState({ marks: e.target.value });
+  }
   
+  static getquizList = () => {
+    return this.quiztList;
+}
 
   render() {
     const { classes } = this.props;
-    const { activeStep, steps, options, textValue, checkedOptionValue } = this.state;
+    const { activeStep, steps, options, textValue, checkedOptionValue,question,marks } = this.state;
+ 
 
     return (
       <React.Fragment>
@@ -126,7 +176,9 @@ class DynamicStepper extends React.Component {
               margin="normal"
               variant="outlined"
               multiline="true"
-              
+              name="question"
+              value={question}
+              onChange={(e) => this.setState({ question: e.target.value })}
         />
         <TextField
           type="text"
@@ -134,6 +186,8 @@ class DynamicStepper extends React.Component {
           style={{ margin: 10 }}
           margin="normal"
           variant="outlined"
+          value={marks}
+          onChange={(e) => this.setState({ marks: e.target.value })}
                      />
         <div>
         <TextField

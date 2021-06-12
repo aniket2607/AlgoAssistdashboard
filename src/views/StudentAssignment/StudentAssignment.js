@@ -1,5 +1,5 @@
 import { Container } from '@material-ui/core';
-import React, {useState } from 'react';
+import React, {useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import {SubmitQuizPopUp} from 'components/Assignment/SubmitQuizPopUp';
@@ -21,6 +21,7 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
+import {getAssignmentList, getQuizList} from "./StudentAssignmentService";
   
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,7 +35,73 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StudentAssignment(){
     const classes = useStyles();
-    //_______Open Add Assignment Popup_____________
+    //__Integration code
+ 
+  const [isChanged, setisChanged] = useState(0)
+  const [data, setData] = useState({})
+  const [redirect, setRedirect] = useState("")
+  const [quizdata, setquizdata] = useState({})
+  
+  useEffect(() => {
+    getAssignmentList().then(result =>{
+      setData(result.data)
+      
+    }).catch(error=>{
+      if(error.request.status === 0){
+        localStorage.clear()
+        //showNotification("bc")
+        setTimeout(function() { setRedirect('/login'); }, 5000);
+      }
+      else if(error.response.status === 401){
+        localStorage.clear()
+        //showNotification("tl")
+        setTimeout(function() { setRedirect('/login'); }, 5000);
+      }
+    })    
+  });
+  useEffect(() => {
+    getQuizList().then(response =>{
+      setquizdata(response.data)
+    }).catch(error=>{
+      if(error.request.status === 0){
+        localStorage.clear()
+        //showNotification("bc")
+        setTimeout(function() { setRedirect('/login'); }, 5000);
+      }
+      else if(error.response.status === 401){
+        localStorage.clear()
+        //showNotification("tl")
+        setTimeout(function() { setRedirect('/login'); }, 5000);
+      }
+    })
+  });
+  
+  const assignmentList = [];
+      for(let i = 0; i < data.length; i++) {
+          //let name = `${this.state.users[i].name.first} ${this.state.users[i].name.last}`;
+          let cnt = i+1;
+          let title = data[i].title;
+          let description = data[i].description;
+          let duedate = data[i].duedate;
+          //let key = this.state.users[i].id.value;
+          assignmentList.push([cnt,title,description,duedate]);
+      }
+      //console.log("List**********")
+    //console.log(assignmentList)
+
+    const quiztList = [];
+    for(let i = 0; i < quizdata.length; i++) {
+          //let name = `${this.state.users[i].name.first} ${this.state.users[i].name.last}`;
+          let cnt = i+1;
+          let title = quizdata[i].title;
+          let is_active = quizdata[i].is_active;
+          let due_date = quizdata[i].due_date;
+          //let key = this.state.users[i].id.value;
+          quiztList.push([cnt,title,due_date,is_active]);
+      }
+      //console.log(" Quiz List**********")
+    //console.log(quiztList)
+    //___End of integration    
   
     return (
       <div>

@@ -1,4 +1,4 @@
-import React,{useRef, useEffect, useCallback} from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSpring, animated } from 'react-spring';
 import Modal from '@material-ui/core/Modal';
@@ -41,7 +41,10 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { DatePicker } from 'antd';
-
+import { useFormik } from 'formik';
+import { Redirect } from 'react-router-dom';
+import {addAssignment,getClassId} from './AddAssignmentService';
+import data from 'components/Visualisation/BinarySearch/data';
 
 
 
@@ -76,12 +79,89 @@ export default function AddAssignment(){
   };
 
   const [classdiv, setClassDiv] = React.useState('');
-
+  let varclassDiv;
+  //const [classdivValue,setclassDivValue]=useState('');
   const handleChange = (event) => {
-    setClassDiv(event.target.value);
+    setClassDiv(event.target.value)
+    //setclassDivValue(event.target.value)
+    //console.log(event.target.value)
+    //console.log("classdiv")
+    //console.log(classdiv)
+    //varclassDiv = event.target.value;
   };
 
+  const [classdivValue,setclassDivValue]=useState('');
+  const handleSelect=(e)=>{
+    console.log(e);
+    setclassDivValue(e)
+    console.log("*********Inside handleselect")
+    console.log(classdivValue);
+  }
 
+  //______Integration code
+  const [data, setData] = useState({})
+  const [redirect, setRedirect] = useState("")
+  
+	const formik = useFormik({
+		initialValues: {
+			title : '',
+			description : '',
+      _class : '',
+      duedate : '',
+		},
+    
+		onSubmit: (values) => {
+			console.log("Inside onsubmit")
+      console.log(values.title)
+      console.log(values.description)
+      console.log(values._class.value)
+      console.log(values.duedate)
+      console.log(varclassDiv)
+      console.log(varclassDiv)
+      console.log("Inside onsubmit...")
+      getClassId({name: "BE A" })
+				.then(result => {
+          console.log(result)
+          console.log("getclassid Api response")
+          setData(result.data)
+					console.log(data.id);
+				}),
+			//{ title: values.title, description: values.description,_class : data.id ,duedate : values.duedate }	
+			addAssignment({ title: values.title, description: values.description,_class : data.id ,duedate : values.duedate }	 )
+				.then(result => {
+          console.log("Api response------------++++++++++=")
+					console.log(result);
+          console.log(result.data.response)
+          console.log(result.data.id)
+					if (result.data.response ===  "Assignment created successfully" && result.data.id !== "") {
+            
+                setRedirect("/teacher/assignment")
+              
+					}else{
+            setRedirect("/login")
+          }
+
+				}).catch(error=>{
+          if(error.request.status === 0){
+            localStorage.clear()
+            //showNotification("bc")
+            setTimeout(function() { setRedirect('/login'); }, 5000);
+          }
+          else if(error.response.status === 401){
+            localStorage.clear()
+            //showNotification("tl")
+            setTimeout(function() { setRedirect('/login'); }, 5000);
+          }
+        })
+				}
+    });
+
+    if(redirect.length>0){
+      return(
+        <Redirect from="teacher/assignment" to="/teacher/assignment" />
+      )
+    }
+  //_____Integration end
  
 
 
@@ -96,6 +176,7 @@ export default function AddAssignment(){
               <h4 style={{color:"#ffff"}}>Add Assisgnment</h4>
             </CardHeader>
             <CardBody style={{paddingLeft:"15px",paddingRight:"35px"}}>
+            <form className={classes.form} noValidate onSubmit={formik.handleSubmit}>
             <TextField
               id="outlined-password-input"
               label="Assignment Heading"
@@ -104,6 +185,10 @@ export default function AddAssignment(){
               margin="normal"
               variant="outlined"
               multiline="true"
+              name="title"
+              autoComplete="title"
+              autoFocus
+              onChange = {formik.handleChange}
               
         />
         <TextField
@@ -115,24 +200,30 @@ export default function AddAssignment(){
               variant="outlined"
               multiline="true"
               rows="2"
+              name="description"
+              autoComplete="description"
+              autoFocus
+              onChange = {formik.handleChange}
               
         />
         <FormControl variant="outlined" style={{minWidth: 120,paddingLeft:"15px",marginTop: 10,marginBottom: 8}} >
         <InputLabel id="demo-simple-select-outlined-label"style={{paddingLeft:"15px"}} >Class</InputLabel>
         <Select
           labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
+          id="cls"
           value={classdiv}
-          onChange={handleChange}
+          name = "_class"
           label="Class"
+          onChange = {handleChange}
+          
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>TE-A</MenuItem>
-          <MenuItem value={20}>TE-B</MenuItem>
-          <MenuItem value={30}>BE-A</MenuItem>
-          <MenuItem value={30}>BE-B</MenuItem>
+          <MenuItem value={"BE A"} >BE A</MenuItem>
+          <MenuItem value={"TE-B"} >TE-B</MenuItem>
+          <MenuItem value={"SE A"}>SE A</MenuItem>
+          <MenuItem value={"BE-B"}>BE-B</MenuItem>
         </Select>
       </FormControl>
     <div style={{paddingLeft:"9px",marginTop: 15,marginBottom: 8}}>
@@ -142,7 +233,8 @@ export default function AddAssignment(){
         type="datetime-local"
         defaultValue={selectedDate}
         className={classes.textField}
-        onChange={handleDateChange}
+        onChange = {formik.handleChange}
+        name = "duedate"
         InputLabelProps={{
           shrink: true,
         }}
@@ -150,9 +242,10 @@ export default function AddAssignment(){
       />
       </div>
 
-    <Button variant="contained" color="secondary" style={{marginTop: 18,marginBottom: 8,left:'40%'}}>
-        Post Assisgnment
+    <Button type="submit" variant="contained" color="secondary" style={{marginTop: 18,marginBottom: 8,left:'40%'}} className={classes.Submit}>
+        Post Assignment
       </Button>
+      </form>
             </CardBody>
           </Card>
         </GridItem>
