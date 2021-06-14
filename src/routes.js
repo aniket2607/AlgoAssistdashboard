@@ -18,9 +18,10 @@
 // @material-ui/icons
 import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
-import LibraryBooks from "@material-ui/icons/LibraryBooks";
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 import BubbleChart from "@material-ui/icons/BubbleChart";
-import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
 import Unarchive from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
@@ -54,21 +55,21 @@ const dashboardRoutes = [
   {
     path: "/leaderboard",
     name: "Leaderboard",
-    icon: "content_paste",
+    icon: TrendingUpIcon,
     component: Leaderboard,
     layout: "/student"
   },
   {
     path: "/subjects",
     name: "Subjects",
-    icon: "content_paste",
+    icon: MenuBookIcon,
     component: Subjects,
     layout: "/student"
   },
   {
     path: "/assignment",
     name: "Assignment",
-    icon: "content_paste",
+    icon: AssignmentIcon,
     component: StudentAssignment,
     layout: "/student"
   },

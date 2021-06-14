@@ -18,7 +18,12 @@
 // @material-ui/icons
 import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
+import EqualizerIcon from '@material-ui/icons/Equalizer';
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import BubbleChart from "@material-ui/icons/BubbleChart";
 import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
@@ -61,35 +66,35 @@ const dashboardRoutes = [
   {
     path: "/leaderboard",
     name: "Leaderboard",
-    icon: "content_paste",
+    icon: TrendingUpIcon,
     component: Leaderboard,
     layout: "/teacher"
   },
   {
     path: "/addstudents",
     name: "Add students",
-    icon: "content_paste",
+    icon: PersonAddIcon,
     component: AddStudents,
     layout: "/teacher"
   },
   {
     path: "/studentsReport",
     name: "Student's Report",
-    icon: "content_paste",
+    icon: EqualizerIcon,
     component: StudentsReport,
     layout: "/teacher"
   },
   {
     path: "/assignment",
     name: "Assignment",
-    icon: "content_paste",
+    icon: AssignmentIcon,
     component: TeacherAssignment,
     layout: "/teacher"
   },
   {
     path: "/evaluate",
     name: "Evaluate",
-    icon: "content_paste",
+    icon: AssignmentTurnedInIcon,
     component: Evaluate,
     layout: "/teacher"
   },
