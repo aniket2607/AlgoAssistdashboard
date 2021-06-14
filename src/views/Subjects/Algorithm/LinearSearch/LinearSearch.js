@@ -25,6 +25,7 @@ import Switch from "@material-ui/core/Switch";
 import Explanation  from './Explanation';
 import Visualization from './Visualization';
 import PostAssessment from './PostAssessment';
+import Coding from './Coding';
 
 export default function AlgorithmFlow(){
   const [value, setValue] = React.useState(0);
@@ -44,6 +45,8 @@ export default function AlgorithmFlow(){
             return <Visualization/>
         case "POSTASSESSMENT":
             return <PostAssessment/>
+        case "CODING":
+            return <Coding/>
     }
    
   }    
@@ -64,7 +67,7 @@ export default function AlgorithmFlow(){
                   <Tab label="Pre-Assessment" icon={<AssessmentIcon />} onClick ={e=>setfragment("PREASSESSMENT")}/>
                   <Tab label="Explanation" icon={<ExplicitIcon />} onClick ={e=>setfragment("ASSIGNMENT")}/>
                   <Tab label="Visualization" icon={<VisibilityIcon />} onClick ={e=>setfragment("VISUALIZATION")}/>
-                  <Tab label="Coding Practice" icon={<CodeIcon />}/>
+                  <Tab label="Coding Practice" icon={<CodeIcon />} onClick ={e=>setfragment("CODING")}/>
                   <Tab label="Post-Assessment" icon={<AssessmentIcon/>} onClick ={e=>setfragment("POSTASSESSMENT")}/>
                   
                 </Tabs>

@@ -120,7 +120,6 @@ export default function BinarySearch() {
       <Button color="primary" round onClick={reset}>Reset Array</Button>
     
        
-       
       </div>
         </Grid>
         <Grid item xs={6}>

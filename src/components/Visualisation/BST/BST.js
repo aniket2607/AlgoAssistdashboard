@@ -13,12 +13,14 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box'
-
+import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Fade from '@material-ui/core/Fade';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Button from "components/CustomButtons/Button.js";
+
 
 
 function TabPanel(props) {
@@ -56,6 +58,12 @@ function TabPanel(props) {
   root: {
     backgroundColor: theme.palette.background.paper,
     width: 500,
+  },
+  container: {
+    display: 'flex',
+  },
+  paper: {
+    margin: theme.spacing(1),
   },
 }));
 
@@ -167,13 +175,18 @@ function TabPanel(props) {
                     </div>
                 </div>
                 <div style={{lineheight:"500px"}} >
-                <input placeholder="Input element" onChange={setElementValue} id="element"></input>
-                        <button onClick={startVisual}>Search</button>
-                        <button onClick={startInsertVisual}>Insert</button>
-                        <button onClick={startDelVisual}>Delete</button>
+                {/* <input placeholder="Input element" onChange={setElementValue} id="element"></input> */}
+                <TextField className="outlined" label="Enter a number" variant="outlined" id="element" type="text" onChange={setElementValue}/>
+                        {/* <button onClick={startVisual}>Search</button> */}
+                        <Button color="primary" round onClick={startVisual}>Search</Button>
+                        <Button color="primary" round onClick={startInsertVisual}>Insert</Button>
+                        <Button color="primary" round  onClick={startDelVisual}>Delete</Button>
+
+                        {/* <button onClick={startInsertVisual}>Insert</button>
+                        <button onClick={startDelVisual}>Delete</button> */}
                </div>
 
-               <div className="accord1">
+               <div className="accord7" >
       <div className={classes.container}>
       <Fade in={checked}>
           <Paper elevation={4} className={classes.paper}>
@@ -198,76 +211,100 @@ function TabPanel(props) {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-        <ul>
+        <div >
+          <p>
                             <div className={`tracer${schema.myattri.tHandler>0 && schema.myattri.operationType==="ser"? '':"hidden"}`}>
-                                <li>while root != null</li>
+                                while root != null
                             </div>
                                 <div  className={`tracer${schema.myattri.ltgt ==='l'  && schema.myattri.operationType==="ser"? '':"hidden"}`}>
-                                <li>&emsp;if elementtoSearch &lt; root.val</li>
+                                &emsp;if elementtoSearch &lt; root.val
                                 </div>
                                     <div  className={`tracer${schema.myattri.nodelink && schema.myattri.ltgt === 'l'  && schema.myattri.operationType==="ser"? '':"hidden"}`}>
-                                    <li>&emsp;&emsp;root = root.left</li>
+                                    &emsp;&emsp;root = root.left
                                     </div>
                                 <div  className={`tracer${schema.myattri.ltgt === 'g'  && schema.myattri.operationType==="ser"? '':"hidden"}`}>
-                                <li>&emsp;if elementtoSearch &gt; root.val</li>
+                                &emsp;if elementtoSearch &gt; root.val
                                 </div>
                                     <div  className={`tracer${schema.myattri.nodelink && schema.myattri.ltgt === 'g'  && schema.myattri.operationType==="ser"? '':"hidden"}`}>
-                                    <li>&emsp;&emsp;root = root.right</li>
+                                    &emsp;&emsp;root = root.right
                                     </div>
                                 <div  className={`tracer${schema.myattri.found  && schema.myattri.operationType==="ser"? '':"hidden"}`}>
-                                <li>&emsp;return found</li>
+                                &emsp;return found
                                 </div>
                             <div  className={`tracer${schema.myattri.notfound && schema.myattri.operationType==="ser" ? '':"hidden"}`}>
-                            <li>return notfound</li>
-                            </div>
-                        </ul>
+                           return notfound</div>
+                       </p></div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-        <ul>
-                        
-                        <li>cur = root</li>
+        <div >
+          <p>     
+                        cur = root<br/>
                         <div className={`tracer${schema.myattri.tHandler>0 && schema.myattri.operationType==="ins"? '':"hidden"}`}>
-                        <li>while(cur)</li>
+                        while(cur)<br/>
                         </div>
                         <div className={`tracer${schema.myattri.tHandler>0 && schema.myattri.operationType==="ins"? '':"hidden"}`}>
-                        <li>&emsp;&emsp;if elementToInsert &lt; cur.data</li>
+                      &emsp;&emsp;if elementToInsert &lt; cur.data<br/>
                         </div>
                         <div className={`tracer${schema.myattri.tHandler>0 && schema.myattri.operationType==="ins"? '':"hidden"}`}>
-                        <li>&emsp;&emsp;&emsp;&emsp;cur = cur.left</li>
+                        &emsp;&emsp;&emsp;&emsp;cur = cur.left<br/>
                         </div>
                         <div className={`tracer${schema.myattri.tHandler>0 && schema.myattri.operationType==="ins"? '':"hidden"}`}>
-                        <li>&emsp;&emsp;else if elementToInsert &gt; cur.data</li>
+                       &emsp;&emsp;else if elementToInsert &gt; cur.data<br/>
                         </div>
                         <div className={`tracer${schema.myattri.tHandler>0 && schema.myattri.operationType==="ins"? '':"hidden"}`}>
-                        <li>&emsp;&emsp;&emsp;&emsp;cur = cur.right</li>
+                        &emsp;&emsp;&emsp;&emsp;cur = cur.right<br/>
                         </div>
                         <div className={`tracer${schema.myattri.tHandler>0 && schema.myattri.operationType==="ins"? '':"hidden"}`}>
-                        <li>&emsp;&emsp;else</li>
-                        <li>&emsp;&emsp;&emsp;&emsp;return "duplicate entry not allowed"</li>
+                        &emsp;&emsp;else<br/>
+                        &emsp;&emsp;&emsp;&emsp;return "duplicate entry not allowed"<br/>
                         </div>
 
-                        <li>&emsp;&emsp;newnode = new TreeNode(elementToInsert)</li>
-                        <li>&emsp;&emsp;if(root)</li>
-                        <li>&emsp;&emsp;&emsp;&emsp;if elementToInsert&lt;curr</li>
-                        <li>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cur.left = newnode</li>
-                        <li>&emsp;&emsp;&emsp;&emsp;else</li>
-                        <li>&emsp;&emsp;else</li>
-                        <li>&emsp;&emsp;&emsp;&emsp;root = newnode</li>
-
-                    </ul>
+                        &emsp;&emsp;newnode = new TreeNode(elementToInsert)<br/>
+                        &emsp;&emsp;if(root)<br/>
+                        &emsp;&emsp;&emsp;&emsp;if elementToInsert&lt;curr<br/>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cur.left = newnode<br/>
+                        &emsp;&emsp;&emsp;&emsp;else <br/>
+                        &emsp;&emsp;else <br/>
+                        &emsp;&emsp;&emsp;&emsp;root = newnode<br/>
+                        </p></div>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
+        <div >
+          <p>
+        Node deleteNode(Node root, int valueToDelete)  <br/>
+  &nbsp;if root = null <br/>
+  &nbsp; &nbsp; &nbsp; &nbsp;return node  <br/>
+  &nbsp;if root.value  valueToDelete <br/>
+  &nbsp; &nbsp; &nbsp; &nbsp;deleteNode(root.right, valueToDelete) <br/>
+  &nbsp;if root.value > valueToDelete <br/>
+  &nbsp; &nbsp; &nbsp; &nbsp;  deleteNode(root.left, valueToDelete) <br/>
+  &nbsp;else  <br/>
+  &nbsp;  &nbsp; &nbsp; &nbsp; if (isLeafNode(root)) <br/>
+  &nbsp;    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return null <br/>
+  &nbsp; &nbsp; &nbsp; &nbsp; if (root.right == null)  <br/>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return root.left <br/>
+  &nbsp;  &nbsp; &nbsp; &nbsp; if (root.left == null) <br/>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return root.right <br/>
+
+    else  <br/>
+    &nbsp; &nbsp; &nbsp; &nbsp; minValue = findMinInRightSubtree(root) <br/>
+    &nbsp; &nbsp; &nbsp; &nbsp; root.value = minValue <br/>
+    &nbsp; &nbsp; &nbsp; &nbsp;  removeDuplicateNode(root) <br/>
+    &nbsp; &nbsp; &nbsp; &nbsp;  return root <br/>
+      </p>
+      </div>
         </TabPanel>
       </SwipeableViews>
     </div>
       </Paper>
         </Fade>
     </div>
+    <div >
     <FormControlLabel
         control={<Switch checked={checked} onChange={handleChangeSwitch} />}
         label="Code Trace"
       />
+      </div>
       
     </div>
 
