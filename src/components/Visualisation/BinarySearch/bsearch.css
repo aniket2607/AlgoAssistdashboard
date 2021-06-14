@@ -60,7 +60,12 @@
     /* transform: translate(0%, -30%); */
   }
 
-
+  .accord7{
+    position: relative;
+    left: 550px;
+    bottom: 188px;
+    right:10px
+  }
   
   .highlight{
     box-shadow: 0px 10px 25px 10px rgba(255, 6, 6, 0.2);
